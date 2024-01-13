@@ -2,7 +2,7 @@ extends Area2D
 
 signal hit
 
-@export var speed = 400 # How fast player moves in pixels/sec
+@export var speed = 600 # How fast player moves in pixels/sec
 var screen_size	#undefined
 
 # on mount
@@ -53,12 +53,12 @@ func _process(delta):
 	for area in get_overlapping_areas():
 		print(area)
 		
-	var player_poly = $CollisionPolygon2D.polygon
-	var player_pos = $CollisionPolygon2D.global_position
-	await get_tree().create_timer(0.5).timeout
-		
-	if has_overlapping_bodies():
-		print(is_overlapping_poly(player_poly,player_pos))
+	#var player_poly = $CollisionPolygon2D.polygon
+	#var player_pos = $CollisionPolygon2D.global_position
+	#await get_tree().create_timer(0.5).timeout
+		#
+	#if has_overlapping_bodies():
+		#print(is_overlapping_poly(player_poly,player_pos))
 
 func is_overlapping_poly(player_poly, player_pos):
 	var body = get_overlapping_bodies()[0]
@@ -137,7 +137,7 @@ func is_polygon_enclosed(inner_polygon: PackedVector2Array, outer_polygon: Packe
 
 func _on_body_entered(body):
 	print("body entered by mob")
-	percent_overlapping()
+	#percent_overlapping()
 	#hide()
 	#hit.emit()
 	#$CollisionShape2D.set_deferred("disabled", true)	# disable collision object so hit signal only triggers once
