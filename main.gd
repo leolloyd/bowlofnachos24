@@ -14,7 +14,7 @@ func game_over():
 	$ScoreTimer.stop()
 	$MobTimer.stop()
 	$HUD.show_game_over()
-	$Music.stop()
+	#$Music.stop()
 	$DeathSound.play()
 	get_tree().call_group("mobs", "queue_free")
 	
@@ -24,30 +24,22 @@ func new_game():
 	$Player.start($StartPosition.position)
 	$StartTimer.start()
 	$HUD.show_message("Get Ready")
-	$Music.play()
+	#$Music.play()
 
 func _on_mob_timer_timeout():
-	# new mob scene
-	var mob = mob_scene.instantiate()
-	
-	# random location selected
-	var mob_spawn_location = get_node("MobPath/MobSpawnLoc")
-	mob_spawn_location.progress_ratio = randf()
-	
-	# mob direction perpendicular to path direction (always inwards)
-	var direction = mob_spawn_location.rotation + PI/2
-	
-	# mob position will be the random location
-	mob.position = mob_spawn_location.position
-	direction += randf_range(-PI/4, PI/4)	# plus minus 45 degrees range randomness
-	mob.rotation = direction
-	
-	var velocity = Vector2(randf_range(150.0, 250.0), 0.0)
-	mob.linear_velocity = velocity.rotated(direction)
-	
-	# spawn mob to the main scene every timeout
-	add_child(mob)
-
+	# Blitz animation - spawns random amount of enemies per cycle within viewport.
+	var max_spawn = 4
+	var n_spawn = randi_range(1,max_spawn)
+	for i in range(n_spawn):
+		var mob = mob_scene.instantiate()
+		var viewport_bounds = get_viewport()
+		var margin = 50.0
+		var spawn_position=Vector2(
+			randf_range(viewport_bounds.position.x + margin, viewport_bounds.size.x - margin),
+			randf_range(viewport_bounds.position.y + margin, viewport_bounds.size.y - margin)
+		)
+		add_child(mob)
+		mob.position = spawn_position
 
 func _on_score_timer_timeout():
 	score += 1

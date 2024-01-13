@@ -1,0 +1,73 @@
+[gd_scene load_steps=8 format=3 uid="uid://csl8mqv4h1av3"]
+
+[ext_resource type="Script" path="res://dorito.gd" id="1_8gffq"]
+[ext_resource type="Texture2D" uid="uid://c8j8c4h16rf0o" path="res://art/dorito-down.png" id="2_xf66r"]
+[ext_resource type="Texture2D" uid="uid://do02ff4ngyr8s" path="res://art/dorito-left.png" id="3_bqb8i"]
+[ext_resource type="Texture2D" uid="uid://dob7pb0b1ckpr" path="res://art/dorito-normal.png" id="4_g3niw"]
+[ext_resource type="Texture2D" uid="uid://2ldss1ymlk27" path="res://art/dorito-right.png" id="5_3pi0i"]
+[ext_resource type="Texture2D" uid="uid://73r2ioajmpni" path="res://art/dorito-up.png" id="6_8vau0"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_y8y7b"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_xf66r")
+}],
+"loop": true,
+"name": &"down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_bqb8i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_bqb8i")
+}],
+"loop": true,
+"name": &"left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_g3niw")
+}],
+"loop": true,
+"name": &"normal",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_3pi0i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_3pi0i")
+}],
+"loop": true,
+"name": &"right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_8vau0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_8vau0")
+}],
+"loop": true,
+"name": &"up",
+"speed": 5.0
+}]
+
+[node name="Player" type="Area2D"]
+script = ExtResource("1_8gffq")
+
+[node name="Dorito" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_y8y7b")
+animation = &"up"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(0, -57, 48, 28, -48, 28)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
