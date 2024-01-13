@@ -39,6 +39,7 @@ func new_game():
 func end_level():
 	$BlitzTimer.stop()
 	get_tree().call_group("mobs", "queue_free")
+	$HUD.get_node("NextLevelLabel").text = "Next level!"
 
 func _on_blitz_timer_timeout():
 	# Blitz animation - spawns random amount of enemies per cycle within viewport.

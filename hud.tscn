@@ -37,5 +37,14 @@ text = "Start"
 wait_time = 2.0
 one_shot = true
 
+[node name="NextLevelLabel" type="Label" parent="."]
+offset_left = 662.0
+offset_top = 396.0
+offset_right = 1172.0
+offset_bottom = 659.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_gf3ij")
+theme_override_font_sizes/font_size = 42
+
 [connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="timeout" from="MessageTimer" to="." method="_on_message_timer_timeout"]
