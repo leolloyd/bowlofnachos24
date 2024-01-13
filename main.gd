@@ -2,8 +2,9 @@ extends Node
 
 @export var mob_scene: PackedScene
 var score
-var max_cycles = 1
+var MAX_CYCLES = 1
 var current_cycles = 0
+var current_level
 
 # Spawn stuff
 var max_spawn = 4
@@ -37,16 +38,16 @@ func new_game():
 	#$Music.play()
 	
 func end_level():
-	$BlitzTimer.stop()
+	$BlitzTimer.stop() 
 	get_tree().call_group("mobs", "queue_free")
-	$HUD.get_node("NextLevelLabel").text = "Next level!"
+	$NextLevel.show()
 
 func _on_blitz_timer_timeout():
 	# Blitz animation - spawns random amount of enemies per cycle within viewport.
 	print("Blitz")
 	run_blitz()
 	
-	if current_cycles < max_cycles-1:
+	if current_cycles < MAX_CYCLES -1:
 		new_cycle()
 		current_cycles += 1
 	else:

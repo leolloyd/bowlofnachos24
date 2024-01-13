@@ -1,5 +1,6 @@
 Label
 CollisionShape2D
-CollisionPolygon2D
+AnimatedSprite2D
 Area2D
+CollisionPolygon2D
 Node2D

@@ -69,5 +69,3 @@ animation = &"up"
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(0, -57, 48, 28, -48, 28)
-
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]

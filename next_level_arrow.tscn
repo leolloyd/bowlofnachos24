@@ -1,0 +1,47 @@
+[gd_scene load_steps=7 format=3 uid="uid://dh6mvn0i02les"]
+
+[ext_resource type="Script" path="res://next_level_arrow.gd" id="1_p0wlh"]
+[ext_resource type="Texture2D" uid="uid://c0ntrfwkdct4c" path="res://art/next-level-arrow-left.png" id="1_xchn4"]
+[ext_resource type="Texture2D" uid="uid://c4nycv2ji41om" path="res://art/next-level-arrow-right.png" id="2_3fac3"]
+[ext_resource type="FontFile" uid="uid://n1r3q13un08n" path="res://fonts/Xolonium-Regular.ttf" id="3_bmier"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_l52as"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_xchn4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_3fac3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_risge"]
+size = Vector2(179, 35)
+
+[node name="NextLevel" type="Area2D"]
+script = ExtResource("1_p0wlh")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_l52as")
+frame_progress = 0.26122
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-70.5, 0.5)
+shape = SubResource("RectangleShape2D_risge")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -159.0
+offset_top = -15.0
+offset_right = 16.0
+offset_bottom = 24.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_bmier")
+theme_override_font_sizes/font_size = 24
+text = "Next level!"
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]

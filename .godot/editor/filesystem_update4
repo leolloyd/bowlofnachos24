@@ -8,3 +8,5 @@ res://dorito.gd
 res://mob.gd
 res://hud.tscn
 res://hud.gd
+res://next_level_arrow.tscn
+res://next_level_arrow.gd
