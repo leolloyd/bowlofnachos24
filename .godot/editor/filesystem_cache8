@@ -1,36 +1,55 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1705135028
-dorito.gd::GDScript::-1::1705132964::0::1::::<>Area2D<>::
-dorito.tscn::PackedScene::6060974672596093958::1705134851::0::1::::<><>::res://dorito.gd<>uid://c8j8c4h16rf0o::::res://art/dorito-down.png<>uid://do02ff4ngyr8s::::res://art/dorito-left.png<>uid://dob7pb0b1ckpr::::res://art/dorito-normal.png<>uid://2ldss1ymlk27::::res://art/dorito-right.png<>uid://73r2ioajmpni::::res://art/dorito-up.png
-hud.gd::GDScript::-1::1705133351::0::1::::<>CanvasLayer<>::
-hud.tscn::PackedScene::7875214138615568976::1705134851::0::1::::<><>::uid://n1r3q13un08n::::res://fonts/Xolonium-Regular.ttf<>res://hud.gd
-icon.svg::CompressedTexture2D::6180552118111371567::1705037444::1705115372::1::::<><>::
-main.gd::GDScript::-1::1705134849::0::1::::<>Node<>::
-main.tscn::PackedScene::6412063980765460477::1705134862::0::1::::<><>::uid://csl8mqv4h1av3::::res://dorito.tscn<>res://main.gd<>uid://dtxwutggnx52q::::res://mob.tscn<>uid://dkg2vj8ki4dvs::::res://hud.tscn<>uid://dv2bt5fxv5xpo::::res://art/gameover.wav
-mob.gd::GDScript::-1::1705120807::0::1::::<>RigidBody2D<>::
-mob.tscn::PackedScene::8541703265767657190::1705134851::0::1::::<><>::res://mob.gd<>uid://bil8tye5mv5ha::::res://art/shadow.png
-next-level-arrow-left.png::CompressedTexture2D::315295224998954814::1705135028::1705135017::1::::<><>::
-next-level-arrow-right.png::CompressedTexture2D::1814265113610134387::1705135028::1705135020::1::::<><>::
-README.md::TextFile::-1::1705112428::0::1::::<><>::
-shadow.png::CompressedTexture2D::3440599952643424215::1705119104::1705119105::1::::<><>::
-::res://art/::1705135047
-dorito-down.png::CompressedTexture2D::7109661374791119212::1705115773::1705115809::1::::<><>::
-dorito-left.png::CompressedTexture2D::8195163901653191352::1705115776::1705115809::1::::<><>::
-dorito-normal.png::CompressedTexture2D::8145940061666648007::1705115779::1705115809::1::::<><>::
-dorito-right.png::CompressedTexture2D::1918022215482267894::1705116209::1705116210::1::::<><>::
-dorito-up.png::CompressedTexture2D::2304926420669751534::1705115770::1705116177::1::::<><>::
-enemyFlyingAlt_1.png::CompressedTexture2D::3313675791452905525::1705037453::1705115372::1::::<><>::
-enemyFlyingAlt_2.png::CompressedTexture2D::4497454277089773701::1705037453::1705115372::1::::<><>::
-enemySwimming_1.png::CompressedTexture2D::5216526187523042836::1705037453::1705115372::1::::<><>::
-enemySwimming_2.png::CompressedTexture2D::6491269860014303661::1705037453::1705115372::1::::<><>::
-enemyWalking_1.png::CompressedTexture2D::4684756399123977990::1705037453::1705115372::1::::<><>::
-enemyWalking_2.png::CompressedTexture2D::8786521108004756150::1705037453::1705115372::1::::<><>::
-gameover.wav::AudioStreamWAV::8689062198413367112::1705037453::1705115372::1::::<><>::
-House In a Forest Loop.ogg::AudioStreamOggVorbis::7604704550319683703::1705037453::1705115372::1::::<><>::
-next-level-arrow-left.png::CompressedTexture2D::6555583647559647528::1705135009::1705135048::1::::<><>::
-next-level-arrow-right.png::CompressedTexture2D::6836616668226975384::1705135006::1705135048::1::::<><>::
-shadow.png::CompressedTexture2D::2972678447057084174::1705119121::1705119121::1::::<><>::
-::res://fonts/::1705115372
-FONTLOG.txt::TextFile::-1::1705037453::0::1::::<><>::
-LICENSE.txt::TextFile::-1::1705037453::0::1::::<><>::
-Xolonium-Regular.ttf::FontFile::967211861844318843::1705037453::1705115372::1::::<><>::
+::res://::1705137821
+dorito.gd::GDScript::-1::1705137439::0::1::::<>Area2D<>::
+dorito.tscn::PackedScene::6060974672596093958::1705137714::0::1::::<><>::res://dorito.gd<>uid://c8j8c4h16rf0o::::res://art/dorito-down.png<>uid://do02ff4ngyr8s::::res://art/dorito-left.png<>uid://dob7pb0b1ckpr::::res://art/dorito-normal.png<>uid://2ldss1ymlk27::::res://art/dorito-right.png<>uid://73r2ioajmpni::::res://art/dorito-up.png
+hud.gd::GDScript::-1::1705133576::0::1::::<>CanvasLayer<>::
+hud.tscn::PackedScene::7875214138615568976::1705137714::0::1::::<><>::uid://n1r3q13un08n::::res://fonts/Xolonium-Regular.ttf<>res://hud.gd
+icon.svg::CompressedTexture2D::6180552118111371567::1705118611::1705137719::1::::<><>::
+main.gd::GDScript::-1::1705137439::0::1::::<>Node<>::
+main.tscn::PackedScene::6412063980765460477::1705137439::0::1::::<><>::uid://csl8mqv4h1av3::::res://dorito.tscn<>res://main.gd<>uid://dtxwutggnx52q::::res://mob.tscn<>uid://dkg2vj8ki4dvs::::res://hud.tscn<>uid://dv2bt5fxv5xpo::::res://art/gameover.wav<>uid://dh6mvn0i02les::::res://next_level_arrow.tscn
+mob.gd::GDScript::-1::1705130318::0::1::::<>RigidBody2D<>::
+mob.tscn::PackedScene::8541703265767657190::1705137714::0::1::::<><>::res://mob.gd<>uid://bil8tye5mv5ha::::res://art/shadow.png
+next-level-arrow-left.png::CompressedTexture2D::315295224998954814::1705137439::1705137439::1::::<><>::
+next-level-arrow-right.png::CompressedTexture2D::1814265113610134387::1705137439::1705137439::1::::<><>::
+next_level_arrow.gd::GDScript::-1::1705137439::0::1::::<>Area2D<>::
+next_level_arrow.tscn::PackedScene::7715346494328211438::1705137714::0::1::::<><>::res://next_level_arrow.gd<>uid://c0ntrfwkdct4c::::res://art/next-level-arrow-left.png<>uid://c4nycv2ji41om::::res://art/next-level-arrow-right.png<>uid://n1r3q13un08n::::res://fonts/Xolonium-Regular.ttf
+README.md::TextFile::-1::1705118611::0::1::::<><>::
+shadow.png::CompressedTexture2D::3440599952643424215::1705130318::1705130318::1::::<><>::
+::res://art/::1705137439
+dorito-down.png::CompressedTexture2D::7109661374791119212::1705130318::1705130318::1::::<><>::
+dorito-left.png::CompressedTexture2D::8195163901653191352::1705130318::1705130318::1::::<><>::
+dorito-normal.png::CompressedTexture2D::8145940061666648007::1705130318::1705130318::1::::<><>::
+dorito-right.png::CompressedTexture2D::1918022215482267894::1705130318::1705130318::1::::<><>::
+dorito-up.png::CompressedTexture2D::2304926420669751534::1705130318::1705130318::1::::<><>::
+next-level-arrow-left.png::CompressedTexture2D::6555583647559647528::1705137439::1705137439::1::::<><>::
+next-level-arrow-right.png::CompressedTexture2D::6836616668226975384::1705137439::1705137439::1::::<><>::
+shadow.png::CompressedTexture2D::2972678447057084174::1705130318::1705130318::1::::<><>::
+::res://Audio/::1705137837
+::res://Audio/Music/::1705137949
+Controls.wav::AudioStreamWAV::8052208726317763226::1705137949::1705137950::1::::<><>::
+Goodending.wav::AudioStreamWAV::3069380821942878883::1705137949::1705137951::1::::<><>::
+Level1.wav::AudioStreamWAV::8222529606314045061::1705137949::1705137951::1::::<><>::
+Level2.wav::AudioStreamWAV::5646167536551617610::1705137949::1705137950::1::::<><>::
+Level3.wav::AudioStreamWAV::2268598403114623896::1705137949::1705137950::1::::<><>::
+Main Menu Music.wav::AudioStreamWAV::2049386991452190109::1705137949::1705137950::1::::<><>::
+Paused Munching.wav::AudioStreamWAV::1939992882305862929::1705137949::1705137950::1::::<><>::
+Paused.wav::AudioStreamWAV::8195110904539502624::1705137949::1705137950::1::::<><>::
+::res://Audio/SFX/::1705137923
+Cool.wav::AudioStreamWAV::7655506739960571451::1705137923::1705137923::1::::<><>::
+Death Crunch.wav::AudioStreamWAV::6679319225526118368::1705137923::1705137923::1::::<><>::
+Dipping.wav::AudioStreamWAV::708297317271935086::1705137923::1705137923::1::::<><>::
+Gnarly.wav::AudioStreamWAV::5563946396420647037::1705137923::1705137923::1::::<><>::
+Incoming Fist.wav::AudioStreamWAV::2635359646536987994::1705137923::1705137923::1::::<><>::
+Keep moving!.wav::AudioStreamWAV::7533905706482672490::1705137923::1705137923::1::::<><>::
+Nice.wav::AudioStreamWAV::6391039207117012585::1705137923::1705137923::1::::<><>::
+Paused Munching.wav::AudioStreamWAV::9038829403826817555::1705137923::1705137923::1::::<><>::
+Perfect.wav::AudioStreamWAV::7808187948959015742::1705137923::1705137923::1::::<><>::
+Rotation.wav::AudioStreamWAV::4217312302064587879::1705137923::1705137923::1::::<><>::
+Slick.wav::AudioStreamWAV::8721423127102624701::1705137923::1705137923::1::::<><>::
+UI Click.wav::AudioStreamWAV::635187700800874321::1705137923::1705137923::1::::<><>::
+UI Hover.wav::AudioStreamWAV::3699377829398696999::1705137923::1705137923::1::::<><>::
+Wicked.wav::AudioStreamWAV::2170883182908183421::1705137923::1705137923::1::::<><>::
+::res://fonts/::1705118611
+FONTLOG.txt::TextFile::-1::1705118611::0::1::::<><>::
+LICENSE.txt::TextFile::-1::1705118611::0::1::::<><>::
+Xolonium-Regular.ttf::FontFile::967211861844318843::1705118611::1705118611::1::::<><>::
