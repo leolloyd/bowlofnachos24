@@ -1,12 +1,8 @@
 res://main.tscn
-res://scene1.tscn
-res://scene1.gd
-res://mob.tscn
-res://main.gd
 res://dorito.tscn
-res://dorito.gd
-res://mob.gd
+res://mob.tscn
 res://hud.tscn
-res://hud.gd
 res://next_level_arrow.tscn
-res://next_level_arrow.gd
+res://main.gd
+res://mob.gd
+res://dorito.gd

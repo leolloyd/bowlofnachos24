@@ -3,11 +3,35 @@ extends Area2D
 signal hit
 
 @export var speed = 600 # How fast player moves in pixels/sec
-var screen_size	#undefined
+var screen_size
+
+var level_accessories = [
+	['GuacSticker'],
+	['GuacSticker', 'CheeseSticker'],
+	['GuacSticker', 'CheeseSticker', 'MeatballSticker']
+]
+
+var level_collisions = [
+	'GuacCollisionPolygon',
+	'CheeseCollisionPolygon',
+	'MeatCollisionPolygon'
+]
+
+func reset_accessories():
+	for name in ['GuacSticker', 'MeatballSticker', 'CheeseSticker']:
+		get_node(name).hide()
+
+func update_accessories(n_level:int):
+	var accessories_names = level_accessories[n_level]
+	for name in accessories_names:
+		get_node(name).show()
 
 # on mount
 func _ready():
 	screen_size = get_viewport_rect().size
+	$GuacSticker.hide()
+	$MeatballSticker.hide()
+	$CheeseSticker.hide()
 	#hide()
 
 # update
@@ -53,10 +77,10 @@ func _process(delta):
 	for area in get_overlapping_areas():
 		print(area)
 
-func is_overlapping_poly(player_poly, player_pos):
+func is_overlapping_poly(player_poly, player_pos, current_level):
 	var body = get_overlapping_bodies()[0]
-	var body_poly = body.get_node("CollisionPolygon2D").polygon
-	var body_pos = body.get_node("CollisionPolygon2D").global_position
+	var body_poly = body.get_node(level_collisions[current_level]).polygon
+	var body_pos = body.get_node(level_collisions[current_level]).global_position
 	var player_poly_pos = []
 	for point in player_poly:
 		player_poly_pos.append(Vector2(
