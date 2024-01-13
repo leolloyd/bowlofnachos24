@@ -2,7 +2,7 @@ extends Node
 
 @export var mob_scene: PackedScene
 var score
-var max_cycles = 3
+var max_cycles = 1
 var current_cycles = 0
 
 # Spawn stuff
@@ -44,13 +44,14 @@ func end_level():
 func _on_blitz_timer_timeout():
 	# Blitz animation - spawns random amount of enemies per cycle within viewport.
 	print("Blitz")
-	if current_cycles < max_cycles:
-		run_blitz()
+	run_blitz()
+	
+	if current_cycles < max_cycles-1:
+		new_cycle()
 		current_cycles += 1
 	else:
 		print("End of level")
 		end_level()
-		
 		
 func run_blitz():
 	var player = $Player.get_node('CollisionPolygon2D')
@@ -64,8 +65,6 @@ func run_blitz():
 		if is_overlapping_dorito:
 			score += 1
 			$HUD.update_score(score)
-	
-	new_cycle()
 	
 func new_cycle():
 	get_tree().call_group("mobs", "queue_free")	# @todo: await here?
