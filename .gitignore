@@ -11,6 +11,5 @@ export_presets.cfg
 data_*/
 
 .godot/
-
-# Godot stuff
-.godot/
+.godot
+.godot/*
