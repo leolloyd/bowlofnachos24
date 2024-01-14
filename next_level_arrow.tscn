@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://next_level_arrow.gd" id="1_p0wlh"]
 [ext_resource type="Texture2D" uid="uid://c0ntrfwkdct4c" path="res://art/next-level-arrow-left.png" id="1_xchn4"]
 [ext_resource type="Texture2D" uid="uid://c4nycv2ji41om" path="res://art/next-level-arrow-right.png" id="2_3fac3"]
-[ext_resource type="FontFile" uid="uid://n1r3q13un08n" path="res://fonts/Xolonium-Regular.ttf" id="3_bmier"]
+[ext_resource type="FontFile" uid="uid://n1r3q13un08n" path="res://Fonts/Xolonium-Regular.ttf" id="3_bmier"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_l52as"]
 animations = [{
