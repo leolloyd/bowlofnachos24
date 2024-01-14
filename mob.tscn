@@ -47,12 +47,10 @@ frame_progress = 0.622015
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 
 [node name="GuacCollisionPolygon" type="CollisionPolygon2D" parent="."]
-visible = false
 position = Vector2(0, 5)
 polygon = PackedVector2Array(-1, -88, 77, 44, -76, 43, -44, -13, -60, -33, -40, -56, -12, -69)
 
 [node name="CheeseCollisionPolygon" type="CollisionPolygon2D" parent="."]
-visible = false
 position = Vector2(0, 6)
 polygon = PackedVector2Array(-1, -88, 77, 44, -76, 43, -44, -13, -60, -33, -40, -56, -12, -69)
 
