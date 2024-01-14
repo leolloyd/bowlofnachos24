@@ -52,6 +52,8 @@ func _ready():
 	$Sparkles.hide()
 	#hide()
 
+
+
 # update
 func _process(delta):
 	var velocity = Vector2.ZERO # player's current movement vector
@@ -105,7 +107,7 @@ func is_overlapping_poly(current_level):
 	#print("BODY: ", body_poly, "\nPLAYER: ", player_poly)
 	#print("body rot: ", body_rotation, "player_rot: ", player_rotation)
 	var player_scale = 0.5	# Change if you change the player scale
-	var body_scale = 0.5	# Change if you change the mob scale ("body" = "mob")
+	var body_scale = 0.55	# Change if you change the mob scale ("body" = "mob")
 	var player_poly_pos = []
 	for point in player_poly:
 		# Rotate, scale, and add position to polygon
@@ -130,7 +132,6 @@ func is_overlapping_poly(current_level):
 		var is_within:bool = Geometry2D.is_point_in_polygon(
 			player_poly_pos[idx],
 			body_poly_pos)
-		print("For point ", idx, "is within is ", is_within)
 		if is_within != true:
 			is_within_flag = false
 	return is_within_flag

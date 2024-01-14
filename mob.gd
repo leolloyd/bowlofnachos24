@@ -13,7 +13,6 @@ func _ready():
 		#get_node(poly).hide()
 
 func update_accessories(current_level):
-	print("Playing..", mob_anim[current_level])
 	$MobAnim.play(mob_anim[current_level])
 	for poly in collision_polys:
 		get_node(poly).hide()

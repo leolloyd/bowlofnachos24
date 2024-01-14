@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://csl8mqv4h1av3"]
+[gd_scene load_steps=14 format=3 uid="uid://csl8mqv4h1av3"]
 
 [ext_resource type="Script" path="res://dorito.gd" id="1_8gffq"]
 [ext_resource type="Texture2D" uid="uid://c8j8c4h16rf0o" path="res://art/dorito-down.png" id="2_xf66r"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://cgblx0g04ciod" path="res://art/meatball-attachment.png" id="8_37vv0"]
 [ext_resource type="Texture2D" uid="uid://crxye83vtelb6" path="res://art/cheese-attachment.png" id="9_j8gle"]
 [ext_resource type="Texture2D" uid="uid://dfdsstdtx342i" path="res://art/Sparkles.png" id="10_2d5ro"]
+[ext_resource type="AudioStream" uid="uid://b1c5rugfyb1gl" path="res://Audio/SFX/Rotation.wav" id="11_8ipmt"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_y8y7b"]
 animations = [{
@@ -114,3 +115,6 @@ visible = false
 position = Vector2(-2, -33)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_ccdv8")
+
+[node name="Rotation" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_8ipmt")

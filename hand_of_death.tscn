@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cx68w0cv1p0mk" path="res://art/hand-of-death.png" id="1_kxwm5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_unlx1"]
-size = Vector2(157, 204)
+size = Vector2(113, 146)
 
 [sub_resource type="Animation" id="Animation_wvaxr"]
 resource_name = "vibrating"
@@ -50,7 +50,7 @@ z_index = 2
 script = ExtResource("1_fjk6k")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1.5, 13)
+position = Vector2(-20.5, 47)
 shape = SubResource("RectangleShape2D_unlx1")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
