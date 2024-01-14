@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cxmb00bed27m4"]
+[gd_scene load_steps=19 format=3 uid="uid://cxmb00bed27m4"]
 
 [ext_resource type="PackedScene" uid="uid://csl8mqv4h1av3" path="res://dorito.tscn" id="1_16lfi"]
 [ext_resource type="Script" path="res://main.gd" id="1_fmtkq"]
@@ -10,6 +10,14 @@
 [ext_resource type="AudioStream" uid="uid://c2froaa0llxki" path="res://Audio/SFX/Death Crunch.wav" id="7_1gieu"]
 [ext_resource type="AudioStream" uid="uid://cmpbs35ugkq71" path="res://Audio/Music/Level2.wav" id="8_82x8f"]
 [ext_resource type="AudioStream" uid="uid://7k6qp2cu5cvw" path="res://Audio/Music/Level3.wav" id="9_vp5we"]
+[ext_resource type="AudioStream" uid="uid://dhcncvu8upsxn" path="res://Audio/SFX/Cool.wav" id="11_nx85t"]
+[ext_resource type="AudioStream" uid="uid://cljhncgof3ovl" path="res://Audio/SFX/Gnarly.wav" id="12_gg5i0"]
+[ext_resource type="AudioStream" uid="uid://cxb4qngqhpjr2" path="res://Audio/SFX/Nice.wav" id="13_p0cc3"]
+[ext_resource type="AudioStream" uid="uid://djilykhx36j3k" path="res://Audio/SFX/Perfect.wav" id="14_u2d7e"]
+[ext_resource type="AudioStream" uid="uid://b1c5rugfyb1gl" path="res://Audio/SFX/Rotation.wav" id="15_icmd8"]
+[ext_resource type="AudioStream" uid="uid://dwiytg1qiwehp" path="res://Audio/SFX/Slick.wav" id="16_cq8qt"]
+[ext_resource type="AudioStream" uid="uid://bdst8usaqk3ik" path="res://Audio/SFX/Incoming Fist.wav" id="17_kbdpb"]
+[ext_resource type="AudioStream" uid="uid://56uem7oh04pt" path="res://Audio/SFX/Wicked.wav" id="18_ia7f6"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_fmtkq")
@@ -34,7 +42,7 @@ wait_time = 3.0
 one_shot = true
 
 [node name="StartTimer" type="Timer" parent="."]
-wait_time = 2.0
+wait_time = 0.5
 one_shot = true
 
 [node name="StartPosition" type="Marker2D" parent="."]
@@ -56,6 +64,30 @@ stream = ExtResource("8_82x8f")
 
 [node name="Level3" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("9_vp5we")
+
+[node name="Cool" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_nx85t")
+
+[node name="Gnarly" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_gg5i0")
+
+[node name="Nice" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_p0cc3")
+
+[node name="Perfect" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_u2d7e")
+
+[node name="Rotation" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("15_icmd8")
+
+[node name="Slick" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("16_cq8qt")
+
+[node name="IncomingFist" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("17_kbdpb")
+
+[node name="Wicked" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("18_ia7f6")
 
 [connection signal="timeout" from="BlitzTimer" to="." method="_on_blitz_timer_timeout"]
 [connection signal="timeout" from="StartTimer" to="." method="_on_start_timer_timeout"]

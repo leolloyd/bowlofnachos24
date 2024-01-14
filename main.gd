@@ -7,6 +7,7 @@ var MAX_CYCLES = 2
 var current_cycles = 0
 var current_level
 var MAX_LEVELS = 3
+var is_end_game = false
 #var end_game = false
 
 # Spawn stuff
@@ -27,7 +28,9 @@ var success_audio = [
 	'Cool',
 	'Gnarly',
 	'Nice',
-	'Perfect'
+	'Perfect',
+	'Slick',
+	'Wicked'
 ]
 
 var level_music = [
@@ -47,13 +50,14 @@ func end_game():
 	$BlitzTimer.stop()
 	$StartTimer.stop()
 	$Player.reset_accessories()
-	get_tree().call_group("mobs", "queue_free")
-	get_tree().call_group("hands", "queue_free")
+	#get_tree().call_group("mobs", "queue_free")
+	#get_tree().call_group("hands", "queue_free")
 	
 func handle_good_ending():
 	end_game()
 
 func handle_semi_bad_ending():
+	print("-->YOU DIED - semi")
 	get_node(level_music[current_level]).stop()
 	$DeathSound.play()
 	end_game()
@@ -110,10 +114,11 @@ func next_level():
 
 func _on_blitz_timer_timeout():
 	# Controls blitz cycle
+	$IncomingFist.play()
+	await get_tree().create_timer(1.5).timeout
 	if current_cycles < MAX_CYCLES - 1:
 		print("Blitz")
 		run_blitz()
-		new_cycle()
 		current_cycles += 1
 	else:
 		# Catch any left over blitz timers
@@ -134,8 +139,9 @@ func run_blitz():
 		if is_overlapping_dorito:
 			score += 1
 			print("Score is now: ", score)
+			get_node(success_audio[randi_range(0,len(success_audio))]).play()
 			$Player.show_sparkles()
-			$BlitzTimer.start()	# Restart timer if didn't die
+			new_cycle()
 		else:
 			handle_semi_bad_ending()
 	else:
@@ -143,9 +149,8 @@ func run_blitz():
 			
 
 func spawn_hands():
-	get_tree().call_group("hands", "queue_free")
 	print("Spawning hands")
-	var x_spawn = 10
+	var x_spawn = 6
 	var y_spawn = 4
 	var hand_margin = 150
 	var pos_x = hand_margin
@@ -155,7 +160,6 @@ func spawn_hands():
 		var hand = hand_scene.instantiate()
 		var spawn_position = Vector2(pos_x, pos_y)
 		hand.position = spawn_position
-		
 		# Logic to prevent overlap
 		add_child.call_deferred(hand)
 		pos_x += ((viewport_bounds.size.x - hand_margin)/x_spawn)
@@ -169,7 +173,7 @@ func new_cycle():
 	get_tree().call_group("mobs", "queue_free")	# @todo: await here?
 	get_tree().call_group("hands", "queue_free")
 	
-	await get_tree().create_timer(0.5).timeout
+	await get_tree().create_timer(1).timeout
 	#spawn_holes()
 	
 	print("Spawning...")
@@ -183,10 +187,11 @@ func new_cycle():
 		mob.position = spawn_position
 		mob.update_accessories(current_level)
 		add_child.call_deferred(mob)
+	
+	$BlitzTimer.start()
 
 func _on_start_timer_timeout():
 	#new_cycle()
 	print("---->New game: start timer")
-	$BlitzTimer.start()
 	new_cycle()
 	#spawn_hands()
