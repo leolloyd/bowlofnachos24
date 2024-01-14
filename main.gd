@@ -3,10 +3,11 @@ extends Node
 @export var mob_scene: PackedScene
 @export var hand_scene: PackedScene
 var score
-var MAX_CYCLES = 3
+var MAX_CYCLES = 2
 var current_cycles = 0
 var current_level
 var MAX_LEVELS = 3
+#var end_game = false
 
 # Spawn stuff
 var max_spawn = 4
@@ -22,6 +23,19 @@ var level_collisions = [
 	'MeatCollisionPolygon'
 ]
 
+var success_audio = [
+	'Cool',
+	'Gnarly',
+	'Nice',
+	'Perfect'
+]
+
+var level_music = [
+	'Level1',
+	'Level2',
+	'Level3'
+]
+
 func _ready():
 	new_game()
 	#pass
@@ -29,16 +43,30 @@ func _ready():
 func _process(delta):
 	pass
 
-func game_over():
+func end_game():
 	$BlitzTimer.stop()
-	$HUD.show_game_over()
-	#$Music.stop()
-	#$DeathSound.play()
+	$StartTimer.stop()
 	$Player.reset_accessories()
 	get_tree().call_group("mobs", "queue_free")
+	get_tree().call_group("hands", "queue_free")
+	
+func handle_good_ending():
+	end_game()
+
+func handle_semi_bad_ending():
+	get_node(level_music[current_level]).stop()
+	$DeathSound.play()
+	end_game()
+	$HUD.show_game_over()
+	
+func handle_very_bad_ending():
+	end_game()
 	
 func new_game():
+	get_tree().call_group("mobs", "queue_free")
+	get_tree().call_group("hands", "queue_free")
 	current_level = 0
+	current_cycles = 0
 	viewport_bounds = get_viewport()
 	$Player.update_accessories(current_level)
 	score = 0
@@ -47,6 +75,7 @@ func new_game():
 	$Player.start($StartPosition.position)
 	$StartTimer.start()
 	$HUD.show_message("Get Ready!")
+	$Level1.play()
 	#$Music.play()
 	
 func end_level():
@@ -64,6 +93,10 @@ func handle_progress_level():
 func next_level():
 	current_level += 1
 	if current_level < MAX_LEVELS:
+		get_tree().call_group("mobs", "queue_free")
+		get_tree().call_group("hands", "queue_free")
+		get_node(level_music[current_level-1]).stop()
+		get_node(level_music[current_level]).play()
 		handle_progress_level()
 		$Player.update_accessories(current_level)
 		$ColorRect.color = bkg_colors[current_level]
@@ -73,20 +106,17 @@ func next_level():
 		current_cycles = 0
 		#new_cycle()
 	else:
-		game_over()
+		handle_good_ending()
 
 func _on_blitz_timer_timeout():
 	# Controls blitz cycle
-	print("Blitz")
-	run_blitz()
-	await get_tree().create_timer(BLITZ_PERIOD_SECS).timeout
-	
-	
 	if current_cycles < MAX_CYCLES - 1:
-		$BlitzTimer.start()
+		print("Blitz")
+		run_blitz()
 		new_cycle()
 		current_cycles += 1
 	else:
+		# Catch any left over blitz timers
 		print("End of level")
 		end_level()
 		
@@ -105,14 +135,17 @@ func run_blitz():
 			score += 1
 			print("Score is now: ", score)
 			$Player.show_sparkles()
+			$BlitzTimer.start()	# Restart timer if didn't die
 		else:
-			print("You died!")
+			handle_semi_bad_ending()
+	else:
+		handle_semi_bad_ending()
 			
 
 func spawn_hands():
 	get_tree().call_group("hands", "queue_free")
 	print("Spawning hands")
-	var x_spawn = 6
+	var x_spawn = 10
 	var y_spawn = 4
 	var hand_margin = 150
 	var pos_x = hand_margin
@@ -135,6 +168,8 @@ func spawn_hands():
 func new_cycle():
 	get_tree().call_group("mobs", "queue_free")	# @todo: await here?
 	get_tree().call_group("hands", "queue_free")
+	
+	await get_tree().create_timer(0.5).timeout
 	#spawn_holes()
 	
 	print("Spawning...")
@@ -151,6 +186,7 @@ func new_cycle():
 
 func _on_start_timer_timeout():
 	#new_cycle()
+	print("---->New game: start timer")
 	$BlitzTimer.start()
 	new_cycle()
 	#spawn_hands()

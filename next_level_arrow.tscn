@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dh6mvn0i02les"]
+[gd_scene load_steps=6 format=3 uid="uid://dh6mvn0i02les"]
 
 [ext_resource type="Script" path="res://next_level_arrow.gd" id="1_p0wlh"]
 [ext_resource type="Texture2D" uid="uid://c0ntrfwkdct4c" path="res://art/next-level-arrow-left.png" id="1_xchn4"]
@@ -19,19 +19,12 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_risge"]
-size = Vector2(179, 35)
-
 [node name="NextLevel" type="Area2D"]
 script = ExtResource("1_p0wlh")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_l52as")
 frame_progress = 0.389416
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-70.5, 0.5)
-shape = SubResource("RectangleShape2D_risge")
 
 [node name="Label" type="Label" parent="."]
 offset_left = -159.0

@@ -130,7 +130,6 @@ func is_overlapping_poly(current_level):
 		var is_within:bool = Geometry2D.is_point_in_polygon(
 			player_poly_pos[idx],
 			body_poly_pos)
-		print("For point ", idx, "is within is ", is_within)
 		if is_within != true:
 			is_within_flag = false
 	return is_within_flag
