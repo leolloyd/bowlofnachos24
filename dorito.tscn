@@ -1,11 +1,13 @@
-[gd_scene load_steps=14 format=3 uid="uid://csl8mqv4h1av3"]
+[gd_scene load_steps=16 format=3 uid="uid://csl8mqv4h1av3"]
 
 [ext_resource type="Script" path="res://dorito.gd" id="1_8gffq"]
 [ext_resource type="Texture2D" uid="uid://c8j8c4h16rf0o" path="res://art/dorito-down.png" id="2_xf66r"]
 [ext_resource type="Texture2D" uid="uid://do02ff4ngyr8s" path="res://art/dorito-left.png" id="3_bqb8i"]
 [ext_resource type="Texture2D" uid="uid://dob7pb0b1ckpr" path="res://art/dorito-normal.png" id="4_g3niw"]
+[ext_resource type="Texture2D" uid="uid://bva5veoiancbo" path="res://art/middle_aged_chippy.png" id="4_rpi4v"]
 [ext_resource type="Texture2D" uid="uid://2ldss1ymlk27" path="res://art/dorito-right.png" id="5_3pi0i"]
 [ext_resource type="Texture2D" uid="uid://73r2ioajmpni" path="res://art/dorito-up.png" id="6_8vau0"]
+[ext_resource type="Texture2D" uid="uid://d28mlrlltufbj" path="res://art/old_chippy.png" id="6_kblmi"]
 [ext_resource type="Texture2D" uid="uid://bd4jjo13cvvoc" path="res://art/guac-attachment.png" id="7_1r8xb"]
 [ext_resource type="Texture2D" uid="uid://cgblx0g04ciod" path="res://art/meatball-attachment.png" id="8_37vv0"]
 [ext_resource type="Texture2D" uid="uid://crxye83vtelb6" path="res://art/cheese-attachment.png" id="9_j8gle"]
@@ -118,5 +120,11 @@ sprite_frames = SubResource("SpriteFrames_ccdv8")
 
 [node name="Rotation" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("11_8ipmt")
+
+[node name="MiddleAge" type="Sprite2D" parent="."]
+texture = ExtResource("4_rpi4v")
+
+[node name="OldAge" type="Sprite2D" parent="."]
+texture = ExtResource("6_kblmi")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]

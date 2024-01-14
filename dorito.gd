@@ -24,6 +24,12 @@ var player_collision_polys = [
 	'MeatCollisionPolygon'
 ]
 
+func middle_age():
+	$Dorito.play("middle_age")
+
+func old_age():
+	$Dorito.play("old_age")
+
 func reset_accessories():
 	for name in ['GuacSticker', 'MeatballSticker', 'CheeseSticker']:
 		get_node(name).hide()
@@ -51,6 +57,8 @@ func _ready():
 	$MeatballSticker.hide()
 	$CheeseSticker.hide()
 	$Sparkles.hide()
+	$MiddleAge.hide()
+	$OldAge.hide()
 	#hide()
 
 # update
