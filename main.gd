@@ -92,7 +92,7 @@ func new_game():
 	print("Score now: ", score)
 	$Player.start($StartPosition.position)
 	$StartTimer.start()
-	$HUD.show_message("Get Ready!")
+	$HUD.toggle_get_ready(true)
 	$Level1.play()
 	#$Music.play()
 	
@@ -120,7 +120,8 @@ func next_level():
 		$ColorRect.color = bkg_colors[current_level]
 		$Player.start($StartPosition.position)
 		$StartTimer.start()
-		$HUD.show_message("Get Ready")
+		#$HUD.show_message("Get Ready")
+		$HUD.toggle_get_ready(true)
 		current_cycles = 0
 		#new_cycle()
 	else:
