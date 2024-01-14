@@ -83,6 +83,7 @@ sprite_frames = SubResource("SpriteFrames_y8y7b")
 animation = &"normal"
 
 [node name="GuacCollisionPolygon" type="CollisionPolygon2D" parent="."]
+visible = false
 position = Vector2(-4, 0)
 polygon = PackedVector2Array(4, -52, 50, 27, -41, 26, -22, -10, -30, -18, -9, -38, -3, -40)
 
@@ -109,7 +110,6 @@ position = Vector2(-4, 0)
 polygon = PackedVector2Array(-4, 43, -21, 26, -41, 26, -22, -10, -31, -19, -9, -38, -3, -40, 4, -52, 49, 26, 34, 27, 28, 42)
 
 [node name="MeatCollisionPolygon" type="CollisionPolygon2D" parent="."]
-visible = false
 position = Vector2(-4, 0)
 polygon = PackedVector2Array(-4, 43, -21, 26, -41, 26, -22, -10, -31, -19, -9, -38, -3, -40, 4, -52, 11, -40, 22, -48, 35, -38, 23, -23, 49, 26, 34, 27, 28, 42)
 
