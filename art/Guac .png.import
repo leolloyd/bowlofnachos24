@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dkseo4fwmaqo8"
-path="res://.godot/imported/Guac.png-e5de65a459ff30ac9cef3767d7dba9cc.ctex"
+uid="uid://bd2vv463s3vg1"
+path="res://.godot/imported/Guac .png-72dab8308a6f2b90274386c2e5ced173.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/Guac.png"
-dest_files=["res://.godot/imported/Guac.png-e5de65a459ff30ac9cef3767d7dba9cc.ctex"]
+source_file="res://art/Guac .png"
+dest_files=["res://.godot/imported/Guac .png-72dab8308a6f2b90274386c2e5ced173.ctex"]
 
 [params]
 
