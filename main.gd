@@ -1,6 +1,7 @@
 extends Node
 
 @export var mob_scene: PackedScene
+@export var hand_scene: PackedScene
 var score
 var MAX_CYCLES = 3
 var current_cycles = 0
@@ -11,6 +12,7 @@ var MAX_LEVELS = 3
 var max_spawn = 4
 var viewport_bounds
 var margin = 100.0
+var BLITZ_PERIOD_SECS = 3
 
 var bkg_colors = ['#8bcb60','#eca46a', '#8a5634']
 
@@ -77,7 +79,8 @@ func _on_blitz_timer_timeout():
 	# Controls blitz cycle
 	print("Blitz")
 	run_blitz()
-	await get_tree().create_timer(1).timeout
+	await get_tree().create_timer(BLITZ_PERIOD_SECS).timeout
+	
 	
 	if current_cycles < MAX_CYCLES - 1:
 		$BlitzTimer.start()
@@ -88,6 +91,7 @@ func _on_blitz_timer_timeout():
 		end_level()
 		
 func run_blitz():
+	spawn_hands()
 	var player = $Player.get_node(level_collisions[current_level])	# player collision box
 	var player_poly = player.polygon
 	var player_pos = player.global_position
@@ -101,9 +105,36 @@ func run_blitz():
 			score += 1
 			print("Score is now: ", score)
 			$Player.show_sparkles()
-	
+		else:
+			print("You died!")
+			
+
+func spawn_hands():
+	get_tree().call_group("hands", "queue_free")
+	print("Spawning hands")
+	var x_spawn = 6
+	var y_spawn = 4
+	var hand_margin = 150
+	var pos_x = hand_margin
+	var pos_y = hand_margin
+	var counter = 1
+	for i in range(1,(x_spawn * y_spawn)+1):
+		var hand = hand_scene.instantiate()
+		var spawn_position = Vector2(pos_x, pos_y)
+		hand.position = spawn_position
+		
+		# Logic to prevent overlap
+		add_child.call_deferred(hand)
+		pos_x += ((viewport_bounds.size.x - hand_margin)/x_spawn)
+		if counter == x_spawn:
+			pos_x = hand_margin
+			pos_y += ((viewport_bounds.size.y - hand_margin)/y_spawn)
+			counter = 0
+		counter += 1
+
 func new_cycle():
 	get_tree().call_group("mobs", "queue_free")	# @todo: await here?
+	get_tree().call_group("hands", "queue_free")
 	#spawn_holes()
 	
 	print("Spawning...")
@@ -122,3 +153,4 @@ func _on_start_timer_timeout():
 	#new_cycle()
 	$BlitzTimer.start()
 	new_cycle()
+	#spawn_hands()

@@ -101,9 +101,9 @@ func is_overlapping_poly(current_level):
 	var body_pos = body.global_position
 	var body_rotation = body.global_rotation  # Added rotation
 	var player_rotation = player.global_rotation  # Added rotation
-	print("For mob: ", body.name, "For player: ", player.name)
-	print("BODY: ", body_poly, "\nPLAYER: ", player_poly)
-	print("body rot: ", body_rotation, "player_rot: ", player_rotation)
+	#print("For mob: ", body.name, "For player: ", player.name)
+	#print("BODY: ", body_poly, "\nPLAYER: ", player_poly)
+	#print("body rot: ", body_rotation, "player_rot: ", player_rotation)
 	var player_scale = 0.5	# Change if you change the player scale
 	var body_scale = 0.5	# Change if you change the mob scale ("body" = "mob")
 	var player_poly_pos = []
