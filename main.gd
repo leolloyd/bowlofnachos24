@@ -125,6 +125,7 @@ func _on_blitz_timer_timeout():
 		run_blitz(true)
 		
 func run_blitz(end_of_level:bool):
+	$Player.freeze()
 	spawn_hands()
 	var player = $Player.get_node(level_collisions[current_level])	# player collision box
 	var player_poly = player.polygon
@@ -158,6 +159,7 @@ func spawn_hands():
 	var x_spawn = 6
 	var y_spawn = 4
 	var hand_margin = 150
+	var between_margin = 50
 	var pos_x = hand_margin
 	var pos_y = hand_margin
 	var counter = 1
@@ -175,6 +177,7 @@ func spawn_hands():
 		counter += 1
 
 func new_cycle():
+	$Player.unfreeze()
 	get_tree().call_group("mobs", "queue_free")	# @todo: await here?
 	get_tree().call_group("hands", "queue_free")
 	
@@ -183,15 +186,27 @@ func new_cycle():
 	
 	print("Spawning...")
 	var n_spawn = randi_range(1,max_spawn)
+	var existing_spawn_pos = []
 	for i in range(n_spawn):
 		var mob = mob_scene.instantiate()
 		var spawn_position=Vector2(
 			randf_range(viewport_bounds.position.x + margin, viewport_bounds.size.x - margin),
 			randf_range(viewport_bounds.position.y + margin, viewport_bounds.size.y - margin)
 		)
+		for pos in existing_spawn_pos:
+			print("Comparing ", spawn_position, " to existing position ", pos)
+			while not pos.x - spawn_position.x > 150 and pos.y - spawn_position.y > 150:
+				spawn_position=Vector2(
+					randf_range(viewport_bounds.position.x + margin, viewport_bounds.size.x - margin),
+					randf_range(viewport_bounds.position.y + margin, viewport_bounds.size.y - margin)
+				)
+				print(spawn_position, pos)
+				await get_tree().create_timer(0.5).timeout
+				
 		mob.position = spawn_position
 		mob.update_accessories(current_level)
 		add_child.call_deferred(mob)
+		existing_spawn_pos.append(spawn_position)
 	
 	$BlitzTimer.start()
 

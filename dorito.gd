@@ -4,6 +4,7 @@ signal hit
 
 @export var speed = 600 # How fast player moves in pixels/sec
 var screen_size
+var frozen = false
 
 var level_accessories = [
 	['GuacSticker'],
@@ -52,8 +53,6 @@ func _ready():
 	$Sparkles.hide()
 	#hide()
 
-
-
 # update
 func _process(delta):
 	var velocity = Vector2.ZERO # player's current movement vector
@@ -67,18 +66,21 @@ func _process(delta):
 	if Input.is_action_pressed("s"):
 		velocity.y += 1
 	if Input.is_action_pressed("left_click"):
-		rotate(deg_to_rad(-rotation_speed * delta))
+		if not frozen:
+			rotate(deg_to_rad(-rotation_speed * delta))
 	if Input.is_action_pressed("right_click"):
-		rotate(deg_to_rad(rotation_speed * delta))
+		if not frozen:
+			rotate(deg_to_rad(rotation_speed * delta))
 	
 	if velocity.length() > 0:
 		velocity = velocity.normalized() * speed
 		$Dorito.play()
 	else:
 		$Dorito.stop()
-		
-	position += velocity * delta
-	position = position.clamp(Vector2.ZERO, screen_size)
+	
+	if not frozen:
+		position += velocity * delta
+		position = position.clamp(Vector2.ZERO, screen_size)
 	
 	# Select correct animation instead of  the just default one
 	if velocity.x != 0 or velocity.y != 0:
@@ -93,6 +95,12 @@ func _process(delta):
 				$Dorito.animation = 'up'
 	else:
 		$Dorito.animation = 'normal'
+
+func freeze():
+	frozen = true
+
+func unfreeze():
+	frozen = false
 
 func is_overlapping_poly(current_level):
 	var player = get_node(player_collision_polys[current_level])	# player collision box
