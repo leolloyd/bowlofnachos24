@@ -10,8 +10,10 @@ load_path = "res://.godot/imported/HowToPlay.png-8133a750175adba4db1e274fc84f875
 script = ExtResource("1_0w5ns")
 
 [node name="TextureRect" type="TextureRect" parent="."]
-offset_right = 1290.0
-offset_bottom = 728.0
+offset_left = 6.0
+offset_top = 5.0
+offset_right = 1281.0
+offset_bottom = 725.0
 texture = SubResource("CompressedTexture2D_q6nr0")
 expand_mode = 1
 

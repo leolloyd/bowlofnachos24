@@ -19,7 +19,7 @@ func show_game_over():
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$StartButton.hide()
-	start_game.emit()
+	#start_game.emit()
 	#pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
