@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://cb6klimdprj5f"]
+[gd_scene load_steps=5 format=3 uid="uid://cb6klimdprj5f"]
 
 [ext_resource type="Script" path="res://main_menu.gd" id="1_ucwhh"]
 [ext_resource type="Texture2D" uid="uid://44f33n3fws36" path="res://art/MainMenu.png" id="1_vhoed"]
+[ext_resource type="Texture2D" uid="uid://c8bkvojebqi1m" path="res://Group 47 (1).png" id="4_gbq1e"]
 [ext_resource type="PackedScene" uid="uid://dfyqrihwqmv53" path="res://play_button.tscn" id="6_ubeby"]
 
 [node name="MainMenu" type="Node"]
@@ -19,5 +20,6 @@ offset_left = 444.0
 offset_top = 352.0
 offset_right = 1089.0
 offset_bottom = 582.0
+texture_normal = ExtResource("4_gbq1e")
 
 [connection signal="button_up" from="PlayButton" to="." method="_on_play_button_button_up"]
