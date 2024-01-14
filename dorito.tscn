@@ -82,18 +82,17 @@ sprite_frames = SubResource("SpriteFrames_y8y7b")
 animation = &"down"
 
 [node name="GuacSticker" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(-22, -26)
+position = Vector2(-42, -56)
 texture = ExtResource("7_1r8xb")
 
 [node name="MeatballSticker" type="Sprite2D" parent="."]
 visible = false
-position = Vector2(17, -35)
+position = Vector2(33, -70)
 texture = ExtResource("8_37vv0")
 
 [node name="CheeseSticker" type="Sprite2D" parent="."]
 visible = false
-position = Vector2(2, 38)
+position = Vector2(6, 68)
 texture = ExtResource("9_j8gle")
 
 [node name="GuacCollisionPolygon" type="CollisionPolygon2D" parent="."]
