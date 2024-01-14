@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://dguf0c4vco4ac"]
+
+[ext_resource type="VideoStream" path="res://Videos/DoritoScream.ogv" id="1_rqpnh"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+offset_left = 836.0
+offset_top = 382.0
+offset_right = 836.0
+offset_bottom = 382.0
+scale = Vector2(0.705, 0.705)
+stream = ExtResource("1_rqpnh")
+autoplay = true
+loop = true
+metadata/_edit_use_anchors_ = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(1504, 769)
