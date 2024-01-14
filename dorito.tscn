@@ -78,42 +78,40 @@ animations = [{
 script = ExtResource("1_8gffq")
 
 [node name="Dorito" type="AnimatedSprite2D" parent="."]
-scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_y8y7b")
-animation = &"normal"
-
-[node name="GuacCollisionPolygon" type="CollisionPolygon2D" parent="."]
-visible = false
-position = Vector2(-4, 0)
-polygon = PackedVector2Array(4, -52, 50, 27, -41, 26, -22, -10, -30, -18, -9, -38, -3, -40)
+animation = &"down"
 
 [node name="GuacSticker" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(-22, -26)
-scale = Vector2(0.5, 0.5)
 texture = ExtResource("7_1r8xb")
 
 [node name="MeatballSticker" type="Sprite2D" parent="."]
 visible = false
 position = Vector2(17, -35)
-scale = Vector2(0.5, 0.5)
 texture = ExtResource("8_37vv0")
 
 [node name="CheeseSticker" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(2, 38)
-scale = Vector2(0.5, 0.5)
 texture = ExtResource("9_j8gle")
+
+[node name="GuacCollisionPolygon" type="CollisionPolygon2D" parent="."]
+position = Vector2(-3, -51)
+polygon = PackedVector2Array(4, -52, 96, 106, -84, 104, -48, 30, -66, 14, -26, -30, -10, -26)
 
 [node name="CheeseCollisionPolygon" type="CollisionPolygon2D" parent="."]
 visible = false
-position = Vector2(-4, 0)
-polygon = PackedVector2Array(-4, 43, -21, 26, -41, 26, -22, -10, -31, -19, -9, -38, -3, -40, 4, -52, 49, 26, 34, 27, 28, 42)
+position = Vector2(-2, -50)
+polygon = PackedVector2Array(-10, 134, -36, 106, -88, 104, -48, 30, -66, 16, -24, -32, -10, -34, 4, -52, 96, 104, 64, 104, 48, 136)
 
 [node name="MeatCollisionPolygon" type="CollisionPolygon2D" parent="."]
 visible = false
 position = Vector2(-4, 0)
-polygon = PackedVector2Array(-4, 43, -21, 26, -41, 26, -22, -10, -31, -19, -9, -38, -3, -40, 4, -52, 11, -40, 22, -48, 35, -38, 23, -23, 49, 26, 34, 27, 28, 42)
+polygon = PackedVector2Array(-4, 84, -22, 58, -82, 52, -48, -20, -60, -34, -18, -84, -8, -82, 8, -102, 26, -80, 42, -98, 70, -74, 48, -50, 100, 52, 70, 56, 54, 82)
 
 [node name="Sparkles" type="AnimatedSprite2D" parent="."]
 visible = false
 position = Vector2(-2, -33)
+scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_ccdv8")

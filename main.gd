@@ -2,7 +2,7 @@ extends Node
 
 @export var mob_scene: PackedScene
 var score
-var MAX_CYCLES = 1
+var MAX_CYCLES = 3
 var current_cycles = 0
 var current_level
 var MAX_LEVELS = 3
@@ -45,7 +45,6 @@ func new_game():
 	$Player.start($StartPosition.position)
 	$StartTimer.start()
 	$HUD.show_message("Get Ready!")
-	new_cycle()
 	#$Music.play()
 	
 func end_level():
@@ -70,7 +69,7 @@ func next_level():
 		$StartTimer.start()
 		$HUD.show_message("Get Ready")
 		current_cycles = 0
-		new_cycle()
+		#new_cycle()
 	else:
 		game_over()
 
@@ -81,6 +80,7 @@ func _on_blitz_timer_timeout():
 	await get_tree().create_timer(1).timeout
 	
 	if current_cycles < MAX_CYCLES - 1:
+		$BlitzTimer.start()
 		new_cycle()
 		current_cycles += 1
 	else:
@@ -94,8 +94,8 @@ func run_blitz():
 	#await get_tree().create_timer(0.5).timeout
 		
 	if $Player.has_overlapping_bodies():
-		var is_overlapping_dorito: bool = $Player.is_overlapping_poly(player_poly,player_pos,current_level)
-		print("Current collision poly: ", player.name)
+		var is_overlapping_dorito: bool = $Player.is_overlapping_poly(current_level)
+		print("Current collision poly for player: ", player.name)
 		print(is_overlapping_dorito)
 		if is_overlapping_dorito:
 			score += 1
@@ -119,4 +119,6 @@ func new_cycle():
 		add_child.call_deferred(mob)
 
 func _on_start_timer_timeout():
+	#new_cycle()
 	$BlitzTimer.start()
+	new_cycle()

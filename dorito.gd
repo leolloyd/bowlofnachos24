@@ -11,7 +11,13 @@ var level_accessories = [
 	['GuacSticker', 'CheeseSticker', 'MeatballSticker']
 ]
 
-var level_collisions = [
+var mob_collision_polys = [
+	'GuacCollisionPolyMob',
+	'CheeseCollisionPolyMob',
+	'MeatCollisionPolyMob'
+]
+
+var player_collision_polys = [
 	'GuacCollisionPolygon',
 	'CheeseCollisionPolygon',
 	'MeatCollisionPolygon'
@@ -22,9 +28,15 @@ func reset_accessories():
 		get_node(name).hide()
 
 func update_accessories(n_level:int):
+	# Update accessories and collision poly
 	var accessories_names = level_accessories[n_level]
 	for name in accessories_names:
 		get_node(name).show()
+	# Hide all polys
+	for poly in player_collision_polys:
+		get_node(poly).hide()
+	get_node(player_collision_polys[n_level]).show()
+		
 		
 func show_sparkles():
 	$Sparkles.show()
@@ -79,33 +91,49 @@ func _process(delta):
 				$Dorito.animation = 'up'
 	else:
 		$Dorito.animation = 'normal'
-		
-	for area in get_overlapping_areas():
-		print(area)
 
-func is_overlapping_poly(player_poly, player_pos, current_level):
-	var body = get_overlapping_bodies()[0]
-	var body_poly = body.get_node(level_collisions[current_level]).polygon
-	var body_pos = body.get_node(level_collisions[current_level]).global_position
+func is_overlapping_poly(current_level):
+	var player = get_node(player_collision_polys[current_level])	# player collision box
+	var player_poly = player.polygon
+	var player_pos = player.global_position
+	var body = get_overlapping_bodies()[0].get_node(mob_collision_polys[current_level])
+	var body_poly = body.polygon
+	var body_pos = body.global_position
+	var body_rotation = body.global_rotation  # Added rotation
+	var player_rotation = player.global_rotation  # Added rotation
+	print("For mob: ", body.name, "For player: ", player.name)
+	print("BODY: ", body_poly, "\nPLAYER: ", player_poly)
+	print("body rot: ", body_rotation, "player_rot: ", player_rotation)
+	var player_scale = 0.5	# Change if you change the player scale
+	var body_scale = 0.5	# Change if you change the mob scale ("body" = "mob")
 	var player_poly_pos = []
 	for point in player_poly:
+		# Rotate, scale, and add position to polygon
+		var rotated_point = point.rotated(player_rotation)
+		var scaled_point = rotated_point * player_scale
 		player_poly_pos.append(Vector2(
-			point.x + player_pos.x,
-			point.y + player_pos.y
+			scaled_point.x + player_pos.x,
+			scaled_point.y + player_pos.y
 		))
+	
 	var body_poly_pos = []
 	for point in body_poly:
+		# Rotate, scale, and add position to polygon
+		var rotated_point = point.rotated(body_rotation)
+		var scaled_point = rotated_point * body_scale
 		body_poly_pos.append(Vector2(
-			point.x + body_pos.x,
-			point.y + body_pos.y
+			scaled_point.x + body_pos.x,
+			scaled_point.y + body_pos.y
 		))
+	var is_within_flag = true
 	for idx in range(len(player_poly)):
 		var is_within:bool = Geometry2D.is_point_in_polygon(
 			player_poly_pos[idx],
 			body_poly_pos)
+		print("For point ", idx, "is within is ", is_within)
 		if is_within != true:
-			return false
-	return true
+			is_within_flag = false
+	return is_within_flag
 	
 func start(pos):
 	position = pos
