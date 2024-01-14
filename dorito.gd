@@ -25,6 +25,11 @@ func update_accessories(n_level:int):
 	var accessories_names = level_accessories[n_level]
 	for name in accessories_names:
 		get_node(name).show()
+		
+func show_sparkles():
+	$Sparkles.show()
+	await get_tree().create_timer(1).timeout
+	$Sparkles.hide()
 
 # on mount
 func _ready():
@@ -32,6 +37,7 @@ func _ready():
 	$GuacSticker.hide()
 	$MeatballSticker.hide()
 	$CheeseSticker.hide()
+	$Sparkles.hide()
 	#hide()
 
 # update

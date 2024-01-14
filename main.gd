@@ -42,7 +42,7 @@ func new_game():
 	$Player.update_accessories(current_level)
 	score = 0
 	$ColorRect.color = bkg_colors[current_level]
-	$HUD.update_score(score)
+	print("Score now: ", score)
 	$Player.start($StartPosition.position)
 	$StartTimer.start()
 	$HUD.show_message("Get Ready")
@@ -60,8 +60,6 @@ func next_level():
 	if current_level < MAX_LEVELS:
 		$Player.update_accessories(current_level)
 		$ColorRect.color = bkg_colors[current_level]
-		#score = 0
-		$HUD.update_score(score)
 		$Player.start($StartPosition.position)
 		$StartTimer.start()
 		$HUD.show_message("Get Ready")
@@ -71,9 +69,10 @@ func next_level():
 		game_over()
 
 func _on_blitz_timer_timeout():
-	# Blitz animation - spawns random amount of enemies per cycle within viewport.
+	# Controls blitz cycle
 	print("Blitz")
 	run_blitz()
+	await get_tree().create_timer(1).timeout
 	
 	if current_cycles < MAX_CYCLES - 1:
 		new_cycle()
@@ -93,7 +92,8 @@ func run_blitz():
 		print(is_overlapping_dorito)
 		if is_overlapping_dorito:
 			score += 1
-			$HUD.update_score(score)
+			print("Score is now: ", score)
+			$Player.show_sparkles()
 	
 func new_cycle():
 	get_tree().call_group("mobs", "queue_free")	# @todo: await here?

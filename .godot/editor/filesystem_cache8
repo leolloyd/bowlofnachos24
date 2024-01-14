@@ -1,20 +1,28 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1705146490
-dorito.gd::GDScript::-1::1705145695::0::1::::<>Area2D<>::
-dorito.tscn::PackedScene::6060974672596093958::1705146469::0::1::::<><>::res://dorito.gd<>uid://c8j8c4h16rf0o::::res://art/dorito-down.png<>uid://do02ff4ngyr8s::::res://art/dorito-left.png<>uid://dob7pb0b1ckpr::::res://art/dorito-normal.png<>uid://2ldss1ymlk27::::res://art/dorito-right.png<>uid://73r2ioajmpni::::res://art/dorito-up.png<>uid://bd4jjo13cvvoc::::res://art/guac-attachment.png<>uid://cgblx0g04ciod::::res://art/meatball-attachment.png<>uid://crxye83vtelb6::::res://art/cheese-attachment.png
-hud.gd::GDScript::-1::1705133351::0::1::::<>CanvasLayer<>::
-hud.tscn::PackedScene::7875214138615568976::1705146469::0::1::::<><>::uid://n1r3q13un08n::::res://fonts/Xolonium-Regular.ttf<>res://hud.gd
+::res://::1705193067
+dorito.gd::GDScript::-1::1705147607::0::1::::<>Area2D<>::
+dorito.tscn::PackedScene::6060974672596093958::1705192809::0::1::::<><>::res://dorito.gd<>uid://c8j8c4h16rf0o::::res://art/dorito-down.png<>uid://do02ff4ngyr8s::::res://art/dorito-left.png<>uid://dob7pb0b1ckpr::::res://art/dorito-normal.png<>uid://2ldss1ymlk27::::res://art/dorito-right.png<>uid://73r2ioajmpni::::res://art/dorito-up.png<>uid://bd4jjo13cvvoc::::res://art/guac-attachment.png<>uid://cgblx0g04ciod::::res://art/meatball-attachment.png<>uid://crxye83vtelb6::::res://art/cheese-attachment.png
+hud.gd::GDScript::-1::1705192802::0::1::::<>CanvasLayer<>::
+hud.tscn::PackedScene::7875214138615568976::1705192809::0::1::::<><>::uid://n1r3q13un08n::::res://fonts/Xolonium-Regular.ttf<>res://hud.gd
 icon.svg::CompressedTexture2D::6180552118111371567::1705037444::1705115372::1::::<><>::
-main.gd::GDScript::-1::1705146428::0::1::::<>Node<>::
-main.tscn::PackedScene::6412063980765460477::1705146468::0::1::::<><>::uid://csl8mqv4h1av3::::res://dorito.tscn<>res://main.gd<>uid://dtxwutggnx52q::::res://mob.tscn<>uid://dkg2vj8ki4dvs::::res://hud.tscn<>uid://dh6mvn0i02les::::res://next_level_arrow.tscn
-mob.gd::GDScript::-1::1705146288::0::1::::<>RigidBody2D<>::
-mob.tscn::PackedScene::8541703265767657190::1705146469::0::1::::<><>::res://mob.gd<>uid://dukd07txrgkcv::::res://art/cheese-silhouette-real.png<>uid://mj5qimye6q5l::::res://art/guac-silhouette-real.png<>uid://byko256a0oepr::::res://art/meat-silhouette-real.png
+main.gd::GDScript::-1::1705192787::0::1::::<>Node<>::
+main.tscn::PackedScene::6412063980765460477::1705193067::0::1::::<><>::uid://csl8mqv4h1av3::::res://dorito.tscn<>res://main.gd<>uid://dtxwutggnx52q::::res://mob.tscn<>uid://dkg2vj8ki4dvs::::res://hud.tscn<>uid://dh6mvn0i02les::::res://next_level_arrow.tscn
+mob.gd::GDScript::-1::1705188809::0::1::::<>RigidBody2D<>::
+mob.tscn::PackedScene::8541703265767657190::1705192809::0::1::::<><>::res://mob.gd<>uid://dukd07txrgkcv::::res://art/cheese-silhouette-real.png<>uid://mj5qimye6q5l::::res://art/guac-silhouette-real.png<>uid://byko256a0oepr::::res://art/meat-silhouette-real.png
 next-level-arrow-left.png::CompressedTexture2D::315295224998954814::1705135028::1705135017::1::::<><>::
 next-level-arrow-right.png::CompressedTexture2D::1814265113610134387::1705135028::1705135020::1::::<><>::
 next_level_arrow.gd::GDScript::-1::1705135629::0::1::::<>Area2D<>::
-next_level_arrow.tscn::PackedScene::7715346494328211438::1705146469::0::1::::<><>::res://next_level_arrow.gd<>uid://c0ntrfwkdct4c::::res://art/next-level-arrow-left.png<>uid://c4nycv2ji41om::::res://art/next-level-arrow-right.png<>uid://n1r3q13un08n::::res://fonts/Xolonium-Regular.ttf
+next_level_arrow.tscn::PackedScene::7715346494328211438::1705192809::0::1::::<><>::res://next_level_arrow.gd<>uid://c0ntrfwkdct4c::::res://art/next-level-arrow-left.png<>uid://c4nycv2ji41om::::res://art/next-level-arrow-right.png<>uid://n1r3q13un08n::::res://fonts/Xolonium-Regular.ttf
 README.md::TextFile::-1::1705112428::0::1::::<><>::
-::res://art/::1705145948
+main_menu.tscn::PackedScene::4907653173942191101::1705192809::0::1::::<><>::res://main_menu.gd<>uid://xgc0tlql0clj::::res://art/MainMenu.png<>uid://dfyqrihwqmv53::::res://play_button.tscn
+main_menu.gd::GDScript::-1::1705192649::0::1::::<>Node<>::
+how_to_play.tscn::PackedScene::5327524087089896800::1705192809::0::1::::<><>::res://how_to_play.gd<>uid://dvb1tmnqc2h6f::::res://art/HowToPlay.png<>uid://dfyqrihwqmv53::::res://play_button.tscn
+how_to_play.gd::GDScript::-1::1705192703::0::1::::<>Node<>::
+PlayButton.gd::GDScript::-1::1705192677::0::1::::<>TextureButton<>::
+play_button.tscn::PackedScene::7560753597769436108::1705192809::0::1::::<><>::uid://bcyy8dngmy646::::res://art/PlayButton.png<>res://PlayButton.gd<>uid://bsyahhq1dpcqx::::res://Audio/SFX/UI Hover.wav<>uid://jbxpiu7tc0bl::::res://Audio/SFX/UI Click.wav
+sound_fx.gd::GDScript::-1::1705192455::0::1::::<>Node<>::
+sound_fx.tscn::PackedScene::979636946691118172::1705192809::0::1::::<><>::uid://4g0dsut8go3n::::res://Audio/Music/Main Menu Music.wav<>res://sound_fx.gd
+::res://art/::1705193218
 cheese-attachment.png::CompressedTexture2D::6014998526082924893::1705142240::1705142307::1::::<><>::
 cheese-silhouette-real.png::CompressedTexture2D::8583911208372938849::1705145929::1705145948::1::::<><>::
 dorito-down.png::CompressedTexture2D::7109661374791119212::1705115773::1705115809::1::::<><>::
@@ -25,11 +33,40 @@ dorito-up.png::CompressedTexture2D::2304926420669751534::1705115770::1705116177:
 guac-attachment.png::CompressedTexture2D::2657417471322505466::1705142233::1705142307::1::::<><>::
 guac-silhouette-real.png::CompressedTexture2D::862696045749886463::1705145925::1705145948::1::::<><>::
 guac-silhouette.png::CompressedTexture2D::891291231191812775::1705142120::1705142127::1::::<><>::
+HowToPlay.png::CompressedTexture2D::8636905368221533047::1705190988::1705191023::1::::<><>::
+MainMenu.png::CompressedTexture2D::1626896764711411903::1705191010::1705191023::1::::<><>::
 meat-silhouette-real.png::CompressedTexture2D::4092496586504043743::1705145926::1705145948::1::::<><>::
 meatball-attachment.png::CompressedTexture2D::5196749090676007679::1705142251::1705142307::1::::<><>::
 next-level-arrow-left.png::CompressedTexture2D::6555583647559647528::1705135009::1705135048::1::::<><>::
 next-level-arrow-right.png::CompressedTexture2D::6836616668226975384::1705135006::1705135048::1::::<><>::
+PlayButton.png::CompressedTexture2D::2577859754033993717::1705191312::1705191315::1::::<><>::
 shadow.png::CompressedTexture2D::2972678447057084174::1705119121::1705119121::1::::<><>::
+Sparkles.png::CompressedTexture2D::7517525456164938626::1705193211::1705193219::1::::<><>::
+::res://Audio/::1705192080
+::res://Audio/Music/::1705148106
+Controls.wav::AudioStreamWAV::8052208726317763226::1705148106::1705148106::1::::<><>::
+Goodending.wav::AudioStreamWAV::3069380821942878883::1705148106::1705148106::1::::<><>::
+Level1.wav::AudioStreamWAV::8222529606314045061::1705148106::1705148106::1::::<><>::
+Level2.wav::AudioStreamWAV::5646167536551617610::1705148106::1705148106::1::::<><>::
+Level3.wav::AudioStreamWAV::2268598403114623896::1705148106::1705148106::1::::<><>::
+Main Menu Music.wav::AudioStreamWAV::2049386991452190109::1705148106::1705148106::1::::<><>::
+Paused Munching.wav::AudioStreamWAV::1939992882305862929::1705148106::1705148106::1::::<><>::
+Paused.wav::AudioStreamWAV::8195110904539502624::1705148106::1705148106::1::::<><>::
+::res://Audio/SFX/::1705193218
+Cool.wav::AudioStreamWAV::7655506739960571451::1705148106::1705148106::1::::<><>::
+Death Crunch.wav::AudioStreamWAV::6679319225526118368::1705148106::1705148106::1::::<><>::
+Dipping.wav::AudioStreamWAV::708297317271935086::1705148106::1705148106::1::::<><>::
+Gnarly.wav::AudioStreamWAV::5563946396420647037::1705148106::1705148106::1::::<><>::
+Incoming Fist.wav::AudioStreamWAV::2635359646536987994::1705148106::1705148106::1::::<><>::
+Keep moving!.wav::AudioStreamWAV::7533905706482672490::1705148106::1705148106::1::::<><>::
+Nice.wav::AudioStreamWAV::6391039207117012585::1705148106::1705148106::1::::<><>::
+Paused Munching.wav::AudioStreamWAV::9038829403826817555::1705148106::1705148106::1::::<><>::
+Perfect.wav::AudioStreamWAV::7808187948959015742::1705148106::1705148106::1::::<><>::
+Rotation.wav::AudioStreamWAV::4217312302064587879::1705148106::1705148106::1::::<><>::
+Slick.wav::AudioStreamWAV::8721423127102624701::1705148106::1705148106::1::::<><>::
+UI Click.wav::AudioStreamWAV::635187700800874321::1705148106::1705148106::1::::<><>::
+UI Hover.wav::AudioStreamWAV::3699377829398696999::1705148106::1705148106::1::::<><>::
+Wicked.wav::AudioStreamWAV::2170883182908183421::1705148106::1705148106::1::::<><>::
 ::res://fonts/::1705115372
 FONTLOG.txt::TextFile::-1::1705037453::0::1::::<><>::
 LICENSE.txt::TextFile::-1::1705037453::0::1::::<><>::
