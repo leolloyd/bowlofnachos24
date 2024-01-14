@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://ch5xsqd7wkofo"]
+[gd_scene load_steps=5 format=3 uid="uid://ch5xsqd7wkofo"]
 
 [ext_resource type="Script" path="res://how_to_play.gd" id="1_0w5ns"]
+[ext_resource type="Texture2D" uid="uid://c8bkvojebqi1m" path="res://Group 47 (1).png" id="3_2sc28"]
 [ext_resource type="PackedScene" uid="uid://dfyqrihwqmv53" path="res://play_button.tscn" id="3_8186v"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_q6nr0"]
@@ -18,9 +19,10 @@ texture = SubResource("CompressedTexture2D_q6nr0")
 expand_mode = 1
 
 [node name="PlayButton" parent="." instance=ExtResource("3_8186v")]
-offset_left = 768.0
-offset_top = 530.0
-offset_right = 1413.0
-offset_bottom = 760.0
+offset_left = 779.0
+offset_top = 539.0
+offset_right = 1424.0
+offset_bottom = 769.0
+texture_normal = ExtResource("3_2sc28")
 
 [connection signal="button_up" from="PlayButton" to="." method="_on_play_button_button_up"]
