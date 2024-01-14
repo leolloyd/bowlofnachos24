@@ -118,14 +118,13 @@ func _on_blitz_timer_timeout():
 	await get_tree().create_timer(1.5).timeout
 	if current_cycles < MAX_CYCLES - 1:
 		print("Blitz")
-		run_blitz()
+		run_blitz(false)
 		current_cycles += 1
 	else:
 		# Catch any left over blitz timers
-		print("End of level")
-		end_level()
+		run_blitz(true)
 		
-func run_blitz():
+func run_blitz(end_of_level:bool):
 	spawn_hands()
 	var player = $Player.get_node(level_collisions[current_level])	# player collision box
 	var player_poly = player.polygon
@@ -133,15 +132,21 @@ func run_blitz():
 	#await get_tree().create_timer(0.5).timeout
 		
 	if $Player.has_overlapping_bodies():
+		print($Player.get_overlapping_bodies())
 		var is_overlapping_dorito: bool = $Player.is_overlapping_poly(current_level)
 		print("Current collision poly for player: ", player.name)
 		print(is_overlapping_dorito)
 		if is_overlapping_dorito:
 			score += 1
 			print("Score is now: ", score)
-			get_node(success_audio[randi_range(0,len(success_audio))]).play()
+			get_node(success_audio[randi_range(0,len(success_audio)-1)]).play()
 			$Player.show_sparkles()
-			new_cycle()
+			await get_tree().create_timer(BLITZ_PERIOD_SECS).timeout
+			if end_of_level:
+				print("End of level")
+				end_level()
+			else:
+				new_cycle()
 		else:
 			handle_semi_bad_ending()
 	else:

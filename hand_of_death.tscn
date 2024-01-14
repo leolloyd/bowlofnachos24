@@ -46,6 +46,7 @@ _data = {
 }
 
 [node name="HandOfDeath" type="Area2D" groups=["hands"]]
+z_index = 2
 script = ExtResource("1_fjk6k")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
