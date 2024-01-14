@@ -21,14 +21,13 @@ var level_collisions = [
 ]
 
 func _ready():
-	#new_game()
-	pass
+	new_game()
+	#pass
 
 func _process(delta):
 	pass
 
 func game_over():
-	$ScoreTimer.stop()
 	$BlitzTimer.stop()
 	$HUD.show_game_over()
 	#$Music.stop()
@@ -45,7 +44,7 @@ func new_game():
 	print("Score now: ", score)
 	$Player.start($StartPosition.position)
 	$StartTimer.start()
-	$HUD.show_message("Get Ready")
+	$HUD.show_message("Get Ready!")
 	new_cycle()
 	#$Music.play()
 	
@@ -112,9 +111,5 @@ func new_cycle():
 		mob.update_accessories(current_level)
 		add_child.call_deferred(mob)
 
-func _on_score_timer_timeout():
-	pass
-
 func _on_start_timer_timeout():
 	$BlitzTimer.start()
-	$ScoreTimer.start()

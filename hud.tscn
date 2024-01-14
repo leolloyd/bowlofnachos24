@@ -7,22 +7,23 @@
 script = ExtResource("1_qasc3")
 
 [node name="Message" type="Label" parent="."]
-offset_left = 443.0
+offset_left = 454.0
 offset_top = 87.0
-offset_right = 807.0
+offset_right = 818.0
 offset_bottom = 136.0
 theme_override_fonts/font = ExtResource("1_gf3ij")
 theme_override_font_sizes/font_size = 40
-text = "Dodge the aliens!"
+text = "Get ready!"
+horizontal_alignment = 1
 
 [node name="StartButton" type="Button" parent="."]
-offset_left = 176.0
+offset_left = 561.0
 offset_top = 481.0
-offset_right = 289.0
+offset_right = 713.0
 offset_bottom = 538.0
 theme_override_fonts/font = ExtResource("1_gf3ij")
 theme_override_font_sizes/font_size = 40
-text = "Start"
+text = "Replay"
 
 [node name="MessageTimer" type="Timer" parent="."]
 wait_time = 2.0
