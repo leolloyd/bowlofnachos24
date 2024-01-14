@@ -1,15 +1,24 @@
-[gd_scene load_steps=6 format=3 uid="uid://dtxwutggnx52q"]
+[gd_scene load_steps=9 format=3 uid="uid://dtxwutggnx52q"]
 
 [ext_resource type="Script" path="res://mob.gd" id="1_72u3w"]
-[ext_resource type="Texture2D" uid="uid://dukd07txrgkcv" path="res://art/cheese-silhouette-real.png" id="2_7bg22"]
-[ext_resource type="Texture2D" uid="uid://mj5qimye6q5l" path="res://art/guac-silhouette-real.png" id="3_pa1sh"]
-[ext_resource type="Texture2D" uid="uid://byko256a0oepr" path="res://art/meat-silhouette-real.png" id="4_20fo8"]
+[ext_resource type="Texture2D" uid="uid://bd2vv463s3vg1" path="res://art/Guac .png" id="2_a4pe0"]
+[ext_resource type="Texture2D" uid="uid://dikk2aeyu2gse" path="res://art/Guac + Cheese.png" id="3_tlaj8"]
+[ext_resource type="Texture2D" uid="uid://bw74bd05tn8i5" path="res://art/Guac + Cheese + Beef.png" id="4_8bv83"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ou5kt"]
+load_path = "res://.godot/imported/cheese-silhouette-real.png-3d9133684da03379cdce5ee217539346.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_m6m00"]
+load_path = "res://.godot/imported/guac-silhouette-real.png-2f6564974c534f113ea07947bab7d32f.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_6qn48"]
+load_path = "res://.godot/imported/meat-silhouette-real.png-bf95469490e76b68c65b1a06df111221.ctex"
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_cv8gx"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_7bg22")
+"texture": SubResource("CompressedTexture2D_ou5kt")
 }],
 "loop": true,
 "name": &"cheese",
@@ -17,7 +26,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_pa1sh")
+"texture": SubResource("CompressedTexture2D_m6m00")
 }],
 "loop": true,
 "name": &"guac",
@@ -25,7 +34,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("4_20fo8")
+"texture": SubResource("CompressedTexture2D_6qn48")
 }],
 "loop": true,
 "name": &"meat",
@@ -39,6 +48,7 @@ script = ExtResource("1_72u3w")
 metadata/_edit_group_ = true
 
 [node name="MobAnim" type="AnimatedSprite2D" parent="."]
+visible = false
 scale = Vector2(0.8, 0.8)
 sprite_frames = SubResource("SpriteFrames_cv8gx")
 animation = &"cheese"
@@ -47,17 +57,28 @@ frame_progress = 0.622015
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 
 [node name="GuacCollisionPolygon" type="CollisionPolygon2D" parent="."]
-visible = false
 position = Vector2(0, 5)
-polygon = PackedVector2Array(-1, -88, 77, 44, -76, 43, -44, -13, -60, -33, -40, -56, -12, -69)
+polygon = PackedVector2Array(1, -118, 18, -112, 109, 46, 105, 64, 92, 76, -87, 75, -103, 64, -104, 45, -74, -11, -84, -24, -84, -44, -64, -71, -33, -92, -17, -113)
 
 [node name="CheeseCollisionPolygon" type="CollisionPolygon2D" parent="."]
-visible = false
 position = Vector2(0, 6)
-polygon = PackedVector2Array(-1, -88, 77, 44, -76, 43, -44, -13, -60, -33, -40, -56, -12, -69)
+polygon = PackedVector2Array(1, -120, 18, -114, 109, 43, 106, 62, 94, 75, 67.8213, 75, 20, 115, -28, 95, -45, 76, -87, 75, -103, 63, -107, 41, -79, -14, -85, -24, -87, -45, -70, -76, -35, -100, -17, -114)
 
 [node name="MeatCollisionPolygon" type="CollisionPolygon2D" parent="."]
 position = Vector2(0, 6)
-polygon = PackedVector2Array(-1, -88, 77, 44, -76, 43, -44, -13, -60, -33, -40, -56, -12, -69)
+polygon = PackedVector2Array(1, -119, 17, -114, 25, -101, 54, -116, 100, -71, 64, -34, 109, 45, 106, 63, 92, 75, 59, 75, 24, 107, -29, 90, -42, 74, -86, 74, -103, 63, -104, 43, -74, -12, -84, -25, -85, -45, -64, -73, -17, -114)
+
+[node name="Guac" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(2, -16)
+texture = ExtResource("2_a4pe0")
+
+[node name="Guac + Cheese" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("3_tlaj8")
+
+[node name="Guac + Cheese + Beef" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("4_8bv83")
 
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
