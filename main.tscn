@@ -36,7 +36,7 @@ position = Vector2(-2, 0)
 scale = Vector2(0.5, 0.5)
 
 [node name="BlitzTimer" type="Timer" parent="."]
-wait_time = 3.0
+wait_time = 4.0
 one_shot = true
 
 [node name="StartTimer" type="Timer" parent="."]

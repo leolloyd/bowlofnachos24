@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://dtxwutggnx52q"]
+[gd_scene load_steps=7 format=3 uid="uid://dtxwutggnx52q"]
 
 [ext_resource type="Script" path="res://mob.gd" id="1_72u3w"]
 [ext_resource type="Texture2D" uid="uid://bd2vv463s3vg1" path="res://art/Guac .png" id="2_a4pe0"]
 [ext_resource type="Texture2D" uid="uid://dikk2aeyu2gse" path="res://art/Guac + Cheese.png" id="3_tlaj8"]
 [ext_resource type="Texture2D" uid="uid://bw74bd05tn8i5" path="res://art/Guac + Cheese + Beef.png" id="4_8bv83"]
+[ext_resource type="AudioStream" uid="uid://bsyahhq1dpcqx" path="res://Audio/SFX/UI Hover.wav" id="5_g86i2"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_cv8gx"]
 animations = [{
@@ -61,5 +62,8 @@ visible = false
 position = Vector2(0, 2)
 scale = Vector2(0.55, 0.55)
 polygon = PackedVector2Array(1, -119, 17, -114, 25, -101, 54, -116, 100, -71, 64, -34, 109, 45, 106, 63, 92, 75, 59, 75, 24, 107, -29, 90, -42, 74, -86, 74, -103, 63, -104, 43, -74, -12, -84, -25, -85, -45, -64, -73, -17, -114)
+
+[node name="BodyEntered" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_g86i2")
 
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

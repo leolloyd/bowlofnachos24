@@ -3,7 +3,7 @@ extends Node
 @export var mob_scene: PackedScene
 @export var hand_scene: PackedScene
 var score
-var MAX_CYCLES = 2
+var MAX_CYCLES = 1
 var current_cycles = 0
 var current_level
 var MAX_LEVELS = 3
@@ -55,6 +55,13 @@ func end_game():
 	
 func handle_good_ending():
 	end_game()
+	get_tree().change_scene_to_file("res://good_ending.tscn")
+	
+func handle_bad_ending():
+	if current_level < 2:
+		handle_semi_bad_ending()
+	else:
+		handle_very_bad_ending()
 
 func handle_semi_bad_ending():
 	print("-->YOU DIED - semi")
@@ -64,7 +71,13 @@ func handle_semi_bad_ending():
 	$HUD.show_game_over()
 	
 func handle_very_bad_ending():
+	print("-->YOU DIED - semi")
+	get_node(level_music[current_level]).stop()
+	$DeathSound.play()
 	end_game()
+	$HUD.show_message("GAME OVER")
+	await get_tree().create_timer(2).timeout
+	get_tree().change_scene_to_file("res://game_over.tscn")
 	
 func new_game():
 	get_tree().call_group("mobs", "queue_free")
@@ -149,9 +162,9 @@ func run_blitz(end_of_level:bool):
 			else:
 				new_cycle()
 		else:
-			handle_semi_bad_ending()
+			handle_bad_ending()
 	else:
-		handle_semi_bad_ending()
+		handle_bad_ending()
 			
 
 func spawn_hands():

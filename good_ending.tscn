@@ -1,8 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://dc01jeoa5iipq"]
+[gd_scene load_steps=10 format=3 uid="uid://dc01jeoa5iipq"]
 
-[ext_resource type="Texture2D" uid="uid://bbxc8p8ap7rci" path="res://art/Escape.png" id="1_kqv3t"]
-[ext_resource type="Texture2D" uid="uid://bt43lvkrulc3d" path="res://art/Family.png" id="2_5mpaa"]
-[ext_resource type="Texture2D" uid="uid://fr72lym0lq4h" path="res://art/Deathbed.png" id="3_6bpgy"]
+[ext_resource type="Texture2D" uid="uid://bbxc8p8ap7rci" path="res://art/Escape.png" id="1_7si8f"]
+[ext_resource type="Script" path="res://good_ending.gd" id="1_e4d5r"]
+[ext_resource type="Texture2D" uid="uid://bt43lvkrulc3d" path="res://art/Family.png" id="2_rsm3x"]
+[ext_resource type="Texture2D" uid="uid://fr72lym0lq4h" path="res://art/Deathbed.png" id="3_1gcco"]
+[ext_resource type="FontFile" uid="uid://n1r3q13un08n" path="res://fonts/Xolonium-Regular.ttf" id="5_yiw2d"]
+[ext_resource type="AudioStream" uid="uid://bjy3ivjidg1p4" path="res://Audio/Music/Goodending.wav" id="6_q6rpu"]
 
 [sub_resource type="Animation" id="Animation_8eqb7"]
 length = 0.001
@@ -125,10 +128,22 @@ tracks/4/path = NodePath("../ColorRect2:color")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(12.9, 17.2),
+"times": PackedFloat32Array(12.9, 16),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../ColorRect2/Label:text")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 5, 9.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": ["It was over…Chippy lived to see another day", "Wanting to escape the chaos of the big city, they moved to the countryside and lived many happy years…", "Chippy lived a full life and died peacefully in his sleep surrounded by friends and family. His stale body returned to the Earth"]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qv37y"]
@@ -137,7 +152,8 @@ _data = {
 "fade_to_normal": SubResource("Animation_q1lmj")
 }
 
-[node name="Node2D" type="Node2D"]
+[node name="GoodEnding" type="Node2D"]
+script = ExtResource("1_e4d5r")
 
 [node name="Black Fade" type="CanvasLayer" parent="."]
 
@@ -157,6 +173,23 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0)
 
+[node name="Label" type="Label" parent="Black Fade/ColorRect2"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -465.0
+offset_top = 59.0
+offset_right = 466.0
+offset_bottom = 212.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("5_yiw2d")
+theme_override_font_sizes/font_size = 40
+text = "It was over…Chippy lived to see another day"
+horizontal_alignment = 1
+autowrap_mode = 2
+
 [node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
 root_node = NodePath("../Black Fade/ColorRect")
 libraries = {
@@ -166,16 +199,21 @@ libraries = {
 [node name="Escape" type="Sprite2D" parent="."]
 position = Vector2(640, 360)
 scale = Vector2(0.665281, 0.666667)
-texture = ExtResource("1_kqv3t")
+texture = ExtResource("1_7si8f")
 
 [node name="Family" type="Sprite2D" parent="."]
 visible = false
 position = Vector2(640, 360)
 scale = Vector2(0.665, 0.667)
-texture = ExtResource("2_5mpaa")
+texture = ExtResource("2_rsm3x")
 
 [node name="Deathbed" type="Sprite2D" parent="."]
 visible = false
 position = Vector2(640, 360)
 scale = Vector2(0.665, 0.667)
-texture = ExtResource("3_6bpgy")
+texture = ExtResource("3_1gcco")
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_q6rpu")
+
+[connection signal="animation_finished" from="AnimationPlayer2" to="." method="_on_animation_player_2_animation_finished"]

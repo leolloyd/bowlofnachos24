@@ -118,3 +118,5 @@ sprite_frames = SubResource("SpriteFrames_ccdv8")
 
 [node name="Rotation" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("11_8ipmt")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
