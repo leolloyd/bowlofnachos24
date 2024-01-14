@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://dkg2vj8ki4dvs"]
+[gd_scene load_steps=10 format=3 uid="uid://dkg2vj8ki4dvs"]
 
 [ext_resource type="FontFile" uid="uid://n1r3q13un08n" path="res://fonts/Xolonium-Regular.ttf" id="1_gf3ij"]
 [ext_resource type="Script" path="res://hud.gd" id="1_qasc3"]
+[ext_resource type="Texture2D" uid="uid://b5qpysjy2l888" path="res://Group 51 (1).png" id="3_34e5r"]
 [ext_resource type="Texture2D" uid="uid://cnylim0hig2dx" path="res://art/LevelProgress.png" id="3_dc1qh"]
 [ext_resource type="Texture2D" uid="uid://l1hh5o3mnyjl" path="res://art/DoritoProgress.png" id="4_j0dxh"]
 
@@ -70,14 +71,12 @@ theme_override_font_sizes/font_size = 40
 text = "Get ready!"
 horizontal_alignment = 1
 
-[node name="StartButton" type="Button" parent="."]
+[node name="StartButton" type="TextureButton" parent="."]
 offset_left = 561.0
 offset_top = 481.0
-offset_right = 713.0
-offset_bottom = 538.0
-theme_override_fonts/font = ExtResource("1_gf3ij")
-theme_override_font_sizes/font_size = 40
-text = "Replay"
+offset_right = 1471.0
+offset_bottom = 714.0
+texture_normal = ExtResource("3_34e5r")
 
 [node name="MessageTimer" type="Timer" parent="."]
 wait_time = 2.0
