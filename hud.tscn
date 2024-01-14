@@ -1,8 +1,61 @@
-[gd_scene load_steps=4 format=3 uid="uid://dkg2vj8ki4dvs"]
+[gd_scene load_steps=9 format=3 uid="uid://dkg2vj8ki4dvs"]
 
 [ext_resource type="FontFile" uid="uid://n1r3q13un08n" path="res://fonts/Xolonium-Regular.ttf" id="1_gf3ij"]
 [ext_resource type="Script" path="res://hud.gd" id="1_qasc3"]
 [ext_resource type="Texture2D" uid="uid://cnylim0hig2dx" path="res://art/LevelProgress.png" id="3_dc1qh"]
+[ext_resource type="Texture2D" uid="uid://l1hh5o3mnyjl" path="res://art/DoritoProgress.png" id="4_j0dxh"]
+
+[sub_resource type="Animation" id="Animation_cakbi"]
+resource_name = "progress_animation"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1201, 126), Vector2(1201, 205)]
+}
+
+[sub_resource type="Animation" id="Animation_28bhx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1201, 128)]
+}
+
+[sub_resource type="Animation" id="Animation_vhav2"]
+resource_name = "cheese_to_beef"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1201, 205), Vector2(1201, 283)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_q5u33"]
+_data = {
+"RESET": SubResource("Animation_28bhx"),
+"cheese_to_beef": SubResource("Animation_vhav2"),
+"progress_animation": SubResource("Animation_cakbi")
+}
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_qasc3")
@@ -30,12 +83,20 @@ text = "Replay"
 wait_time = 2.0
 one_shot = true
 
-[node name="DoritoProgress" type="AnimatedSprite2D" parent="."]
-
 [node name="LevelProgressBar" type="Sprite2D" parent="."]
 position = Vector2(1175, 205)
 scale = Vector2(0.361776, 0.361776)
 texture = ExtResource("3_dc1qh")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1201, 128)
+scale = Vector2(0.289474, 0.289474)
+texture = ExtResource("4_j0dxh")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D"]
+libraries = {
+"": SubResource("AnimationLibrary_q5u33")
+}
 
 [connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="timeout" from="MessageTimer" to="." method="_on_message_timer_timeout"]
