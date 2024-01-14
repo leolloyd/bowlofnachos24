@@ -85,7 +85,7 @@ animation = &"normal"
 [node name="GuacCollisionPolygon" type="CollisionPolygon2D" parent="."]
 visible = false
 position = Vector2(-4, 0)
-polygon = PackedVector2Array(4, -52, 9, -51, 52, 22, 50, 27, 45, 30, -39, 30, -43, 25, -43, 19, -27, -8, -34, -14, -34, -20, -25, -32, -10, -43, -1, -51)
+polygon = PackedVector2Array(4, -52, 50, 27, -41, 26, -22, -10, -30, -18, -9, -38, -3, -40)
 
 [node name="GuacSticker" type="Sprite2D" parent="."]
 position = Vector2(-22, -26)
@@ -93,6 +93,7 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("7_1r8xb")
 
 [node name="MeatballSticker" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(17, -35)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("8_37vv0")
@@ -103,12 +104,14 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("9_j8gle")
 
 [node name="CheeseCollisionPolygon" type="CollisionPolygon2D" parent="."]
+visible = false
 position = Vector2(-4, 0)
-polygon = PackedVector2Array(15, 52, -6, 44, -22, 31, -39, 31, -43, 25, -43, 19, -27, -8, -34, -14, -34, -20, -24, -33, -1, -51, 4, -52, 9, -51, 52, 22, 50, 27, 45, 30, 35, 30)
+polygon = PackedVector2Array(-4, 43, -21, 26, -41, 26, -22, -10, -31, -19, -9, -38, -3, -40, 4, -52, 49, 26, 34, 27, 28, 42)
 
 [node name="MeatCollisionPolygon" type="CollisionPolygon2D" parent="."]
+visible = false
 position = Vector2(-4, 0)
-polygon = PackedVector2Array(15, 53, -6, 45, -22, 31, -39, 31, -43, 25, -43, 19, -28, -8, -34, -13, -34, -20, -24, -34, -1, -51, 4, -52, 9, -51, 12, -46, 21, -52, 40, -40, 26, -22, 52, 22, 50, 27, 45, 30, 35, 30)
+polygon = PackedVector2Array(-4, 43, -21, 26, -41, 26, -22, -10, -31, -19, -9, -38, -3, -40, 4, -52, 11, -40, 22, -48, 35, -38, 23, -23, 49, 26, 34, 27, 28, 42)
 
 [node name="Sparkles" type="AnimatedSprite2D" parent="."]
 visible = false
