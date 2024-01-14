@@ -82,13 +82,14 @@ func _on_blitz_timer_timeout():
 		end_level()
 		
 func run_blitz():
-	var player = $Player.get_node(level_collisions[current_level])
+	var player = $Player.get_node(level_collisions[current_level])	# player collision box
 	var player_poly = player.polygon
 	var player_pos = player.global_position
 	#await get_tree().create_timer(0.5).timeout
 		
 	if $Player.has_overlapping_bodies():
 		var is_overlapping_dorito: bool = $Player.is_overlapping_poly(player_poly,player_pos,current_level)
+		print("Current collision poly: ", player.name)
 		print(is_overlapping_dorito)
 		if is_overlapping_dorito:
 			score += 1

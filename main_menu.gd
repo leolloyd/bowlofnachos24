@@ -5,7 +5,6 @@ extends Node
 func _ready():
 	$"/root/SoundFx".play_main_menu_music()
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
