@@ -54,9 +54,16 @@ func end_level():
 	#$NextLevel.show()
 	next_level()
 	
+func handle_progress_level():
+	if current_level == 1:
+		$HUD.progress_guac_to_cheese()
+	if current_level == 2:
+		$HUD.progress_cheese_to_beef()
+	
 func next_level():
 	current_level += 1
 	if current_level < MAX_LEVELS:
+		handle_progress_level()
 		$Player.update_accessories(current_level)
 		$ColorRect.color = bkg_colors[current_level]
 		$Player.start($StartPosition.position)
