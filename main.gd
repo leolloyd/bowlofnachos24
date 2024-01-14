@@ -187,18 +187,19 @@ func new_cycle():
 	print("Spawning...")
 	var n_spawn = randi_range(1,max_spawn)
 	var existing_spawn_pos = []
+	var shadow_margin = 50
 	for i in range(n_spawn):
 		var mob = mob_scene.instantiate()
 		var spawn_position=Vector2(
-			randf_range(viewport_bounds.position.x + margin, viewport_bounds.size.x - margin),
-			randf_range(viewport_bounds.position.y + margin, viewport_bounds.size.y - margin)
+			randf_range(shadow_margin, viewport_bounds.size.x - shadow_margin),
+			randf_range(shadow_margin, viewport_bounds.size.y - shadow_margin)
 		)
 		for pos in existing_spawn_pos:
 			print("Comparing ", spawn_position, " to existing position ", pos)
 			while not pos.x - spawn_position.x > 150 and pos.y - spawn_position.y > 150:
 				spawn_position=Vector2(
-					randf_range(viewport_bounds.position.x + margin, viewport_bounds.size.x - margin),
-					randf_range(viewport_bounds.position.y + margin, viewport_bounds.size.y - margin)
+					randf_range(shadow_margin, viewport_bounds.size.x - shadow_margin),
+					randf_range(shadow_margin, viewport_bounds.size.y - shadow_margin)
 				)
 				print(spawn_position, pos)
 				await get_tree().create_timer(0.5).timeout
