@@ -40,8 +40,9 @@ var level_music = [
 ]
 
 func _ready():
+	get_tree().call_group("mobs", "queue_free")
+	get_tree().call_group("mobs", "hands_free")
 	new_game()
-	#pass
 
 func _process(delta):
 	pass
